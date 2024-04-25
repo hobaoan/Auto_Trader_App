@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45212E752BDA900E00440C09 /* BotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45212E742BDA900E00440C09 /* BotViewController.swift */; };
+		45212E772BDA902000440C09 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45212E762BDA902000440C09 /* UserViewController.swift */; };
 		45DFD8C02BDA8D690032FB62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DFD8BF2BDA8D690032FB62 /* AppDelegate.swift */; };
 		45DFD8C22BDA8D690032FB62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DFD8C12BDA8D690032FB62 /* SceneDelegate.swift */; };
-		45DFD8C42BDA8D690032FB62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DFD8C32BDA8D690032FB62 /* ViewController.swift */; };
+		45DFD8C42BDA8D690032FB62 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DFD8C32BDA8D690032FB62 /* ChartViewController.swift */; };
 		45DFD8C72BDA8D690032FB62 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 45DFD8C62BDA8D690032FB62 /* Base */; };
 		45DFD8C92BDA8D6B0032FB62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45DFD8C82BDA8D6B0032FB62 /* Assets.xcassets */; };
 		45DFD8CC2BDA8D6B0032FB62 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 45DFD8CB2BDA8D6B0032FB62 /* Base */; };
@@ -36,10 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		45212E742BDA900E00440C09 /* BotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotViewController.swift; sourceTree = "<group>"; };
+		45212E762BDA902000440C09 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		45DFD8BC2BDA8D690032FB62 /* AutoTrader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoTrader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45DFD8BF2BDA8D690032FB62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45DFD8C12BDA8D690032FB62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		45DFD8C32BDA8D690032FB62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		45DFD8C32BDA8D690032FB62 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		45DFD8C62BDA8D690032FB62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		45DFD8C82BDA8D6B0032FB62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45DFD8CB2BDA8D6B0032FB62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -99,12 +103,12 @@
 		45DFD8BE2BDA8D690032FB62 /* AutoTrader */ = {
 			isa = PBXGroup;
 			children = (
-				45DFD8BF2BDA8D690032FB62 /* AppDelegate.swift */,
-				45DFD8C12BDA8D690032FB62 /* SceneDelegate.swift */,
-				45DFD8C32BDA8D690032FB62 /* ViewController.swift */,
-				45DFD8C52BDA8D690032FB62 /* Main.storyboard */,
-				45DFD8C82BDA8D6B0032FB62 /* Assets.xcassets */,
-				45DFD8CA2BDA8D6B0032FB62 /* LaunchScreen.storyboard */,
+				45DFD8F12BDA8DF60032FB62 /* Application */,
+				45DFD8F02BDA8DE90032FB62 /* Scenes */,
+				45DFD8F32BDA8E260032FB62 /* Service */,
+				45DFD8EF2BDA8DE40032FB62 /* Model */,
+				45DFD8F22BDA8E090032FB62 /* Resource */,
+				45DFD8F72BDA8E570032FB62 /* Utils */,
 				45DFD8CD2BDA8D6B0032FB62 /* Info.plist */,
 			);
 			path = AutoTrader;
@@ -125,6 +129,113 @@
 				45DFD8E22BDA8D6C0032FB62 /* AutoTraderUITestsLaunchTests.swift */,
 			);
 			path = AutoTraderUITests;
+			sourceTree = "<group>";
+		};
+		45DFD8EF2BDA8DE40032FB62 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		45DFD8F02BDA8DE90032FB62 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				45DFD8F82BDA8E6D0032FB62 /* Login */,
+				45DFD8F92BDA8E720032FB62 /* Chart */,
+				45DFD8FA2BDA8E7C0032FB62 /* BotTrading */,
+				45DFD8FB2BDA8E840032FB62 /* User */,
+				45DFD8C52BDA8D690032FB62 /* Main.storyboard */,
+				45DFD8CA2BDA8D6B0032FB62 /* LaunchScreen.storyboard */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		45DFD8F12BDA8DF60032FB62 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				45DFD8BF2BDA8D690032FB62 /* AppDelegate.swift */,
+				45DFD8C12BDA8D690032FB62 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		45DFD8F22BDA8E090032FB62 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				45DFD8C82BDA8D6B0032FB62 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		45DFD8F32BDA8E260032FB62 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				45DFD8F62BDA8E360032FB62 /* Repositories */,
+				45DFD8F52BDA8E2F0032FB62 /* Local */,
+				45DFD8F42BDA8E2B0032FB62 /* Remote */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		45DFD8F42BDA8E2B0032FB62 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		45DFD8F52BDA8E2F0032FB62 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		45DFD8F62BDA8E360032FB62 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Repositories;
+			path = "Repositoríe";
+			sourceTree = "<group>";
+		};
+		45DFD8F72BDA8E570032FB62 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		45DFD8F82BDA8E6D0032FB62 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		45DFD8F92BDA8E720032FB62 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				45DFD8C32BDA8D690032FB62 /* ChartViewController.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		45DFD8FA2BDA8E7C0032FB62 /* BotTrading */ = {
+			isa = PBXGroup;
+			children = (
+				45212E742BDA900E00440C09 /* BotViewController.swift */,
+			);
+			path = BotTrading;
+			sourceTree = "<group>";
+		};
+		45DFD8FB2BDA8E840032FB62 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				45212E762BDA902000440C09 /* UserViewController.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +369,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45DFD8C42BDA8D690032FB62 /* ViewController.swift in Sources */,
+				45DFD8C42BDA8D690032FB62 /* ChartViewController.swift in Sources */,
+				45212E772BDA902000440C09 /* UserViewController.swift in Sources */,
 				45DFD8C02BDA8D690032FB62 /* AppDelegate.swift in Sources */,
+				45212E752BDA900E00440C09 /* BotViewController.swift in Sources */,
 				45DFD8C22BDA8D690032FB62 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
