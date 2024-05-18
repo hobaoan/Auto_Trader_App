@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		217F5377EDF9E1BE6791F89F /* Pods_AutoTrader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85699AF3739B1F3090AC1186 /* Pods_AutoTrader.framework */; };
 		45212E752BDA900E00440C09 /* BotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45212E742BDA900E00440C09 /* BotViewController.swift */; };
 		45212E772BDA902000440C09 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45212E762BDA902000440C09 /* UserViewController.swift */; };
+		456EB9012BF0C7030018D38B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 456EB9002BF0C7030018D38B /* Colors.xcassets */; };
+		457BAE582BF8B4B4001AF323 /* UserRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457BAE572BF8B4B4001AF323 /* UserRegister.swift */; };
+		457BAE5A2BF8B81B001AF323 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457BAE592BF8B81B001AF323 /* User.swift */; };
+		457BAE5F2BF8C430001AF323 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457BAE5E2BF8C430001AF323 /* Notification.swift */; };
+		457BAE652BF8C934001AF323 /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457BAE642BF8C934001AF323 /* WalletViewController.swift */; };
 		45DFD8C02BDA8D690032FB62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DFD8BF2BDA8D690032FB62 /* AppDelegate.swift */; };
 		45DFD8C22BDA8D690032FB62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DFD8C12BDA8D690032FB62 /* SceneDelegate.swift */; };
 		45DFD8C42BDA8D690032FB62 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DFD8C32BDA8D690032FB62 /* ChartViewController.swift */; };
@@ -22,6 +28,9 @@
 		45FBB5182BDC9E64005C8674 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBB5172BDC9E64005C8674 /* NetworkError.swift */; };
 		45FBB51A2BDC9E90005C8674 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBB5192BDC9E90005C8674 /* NetworkMonitor.swift */; };
 		45FBB51C2BDC9EC9005C8674 /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBB51B2BDC9EC9005C8674 /* Urls.swift */; };
+		45FBB51E2BDCA438005C8674 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBB51D2BDCA438005C8674 /* LoginViewController.swift */; };
+		C6275F886434575A9046DE41 /* Pods_AutoTraderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 650FCB8E55142704284BD7D0 /* Pods_AutoTraderTests.framework */; };
+		FF33A6BA9B9D83604654E6E9 /* Pods_AutoTrader_AutoTraderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F54DAAA3091841B7423ED14 /* Pods_AutoTrader_AutoTraderUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,8 +51,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		312DDB17B786F3EC952314B1 /* Pods-AutoTrader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoTrader.release.xcconfig"; path = "Target Support Files/Pods-AutoTrader/Pods-AutoTrader.release.xcconfig"; sourceTree = "<group>"; };
 		45212E742BDA900E00440C09 /* BotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotViewController.swift; sourceTree = "<group>"; };
 		45212E762BDA902000440C09 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		456EB9002BF0C7030018D38B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		457BAE572BF8B4B4001AF323 /* UserRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegister.swift; sourceTree = "<group>"; };
+		457BAE592BF8B81B001AF323 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		457BAE5E2BF8C430001AF323 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		457BAE642BF8C934001AF323 /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		45DFD8BC2BDA8D690032FB62 /* AutoTrader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoTrader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45DFD8BF2BDA8D690032FB62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45DFD8C12BDA8D690032FB62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +76,15 @@
 		45FBB5172BDC9E64005C8674 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		45FBB5192BDC9E90005C8674 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		45FBB51B2BDC9EC9005C8674 /* Urls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
+		45FBB51D2BDCA438005C8674 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5F54DAAA3091841B7423ED14 /* Pods_AutoTrader_AutoTraderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoTrader_AutoTraderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		650FCB8E55142704284BD7D0 /* Pods_AutoTraderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoTraderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		85699AF3739B1F3090AC1186 /* Pods_AutoTrader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoTrader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9CA05BF1E17332A984A6943 /* Pods-AutoTrader-AutoTraderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoTrader-AutoTraderUITests.release.xcconfig"; path = "Target Support Files/Pods-AutoTrader-AutoTraderUITests/Pods-AutoTrader-AutoTraderUITests.release.xcconfig"; sourceTree = "<group>"; };
+		ABF5A3AF34768D45E823C8DA /* Pods-AutoTraderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoTraderTests.release.xcconfig"; path = "Target Support Files/Pods-AutoTraderTests/Pods-AutoTraderTests.release.xcconfig"; sourceTree = "<group>"; };
+		E14BFFE516E11F361E0F04EE /* Pods-AutoTrader-AutoTraderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoTrader-AutoTraderUITests.debug.xcconfig"; path = "Target Support Files/Pods-AutoTrader-AutoTraderUITests/Pods-AutoTrader-AutoTraderUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E3DBE9B3C156CACBCDE45C82 /* Pods-AutoTrader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoTrader.debug.xcconfig"; path = "Target Support Files/Pods-AutoTrader/Pods-AutoTrader.debug.xcconfig"; sourceTree = "<group>"; };
+		E9A6E88DD7AFBC2A2FF154D1 /* Pods-AutoTraderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoTraderTests.debug.xcconfig"; path = "Target Support Files/Pods-AutoTraderTests/Pods-AutoTraderTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				217F5377EDF9E1BE6791F89F /* Pods_AutoTrader.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6275F886434575A9046DE41 /* Pods_AutoTraderTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,12 +108,48 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF33A6BA9B9D83604654E6E9 /* Pods_AutoTrader_AutoTraderUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		456EB8FD2BF0990F0018D38B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				85699AF3739B1F3090AC1186 /* Pods_AutoTrader.framework */,
+				5F54DAAA3091841B7423ED14 /* Pods_AutoTrader_AutoTraderUITests.framework */,
+				650FCB8E55142704284BD7D0 /* Pods_AutoTraderTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		457BAE562BF8B4AA001AF323 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				457BAE572BF8B4B4001AF323 /* UserRegister.swift */,
+				457BAE592BF8B81B001AF323 /* User.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		457BAE5B2BF8B8BF001AF323 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				457BAE5E2BF8C430001AF323 /* Notification.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		457BAE622BF8C8FB001AF323 /* wallet */ = {
+			isa = PBXGroup;
+			children = (
+				457BAE642BF8C934001AF323 /* WalletViewController.swift */,
+			);
+			path = wallet;
+			sourceTree = "<group>";
+		};
 		45DFD8B32BDA8D690032FB62 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +157,8 @@
 				45DFD8D52BDA8D6B0032FB62 /* AutoTraderTests */,
 				45DFD8DF2BDA8D6C0032FB62 /* AutoTraderUITests */,
 				45DFD8BD2BDA8D690032FB62 /* Products */,
+				456EB8FD2BF0990F0018D38B /* Frameworks */,
+				4F9D2091DB52AA580E68DDB8 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,6 +206,8 @@
 		45DFD8EF2BDA8DE40032FB62 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				457BAE5B2BF8B8BF001AF323 /* Notification */,
+				457BAE562BF8B4AA001AF323 /* User */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -152,6 +218,7 @@
 				45DFD8F82BDA8E6D0032FB62 /* Login */,
 				45DFD8F92BDA8E720032FB62 /* Chart */,
 				45DFD8FA2BDA8E7C0032FB62 /* BotTrading */,
+				457BAE622BF8C8FB001AF323 /* wallet */,
 				45DFD8FB2BDA8E840032FB62 /* User */,
 				45DFD8C52BDA8D690032FB62 /* Main.storyboard */,
 				45DFD8CA2BDA8D6B0032FB62 /* LaunchScreen.storyboard */,
@@ -172,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				45DFD8C82BDA8D6B0032FB62 /* Assets.xcassets */,
+				456EB9002BF0C7030018D38B /* Colors.xcassets */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -222,6 +290,7 @@
 		45DFD8F82BDA8E6D0032FB62 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				45FBB51D2BDCA438005C8674 /* LoginViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -250,6 +319,19 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		4F9D2091DB52AA580E68DDB8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E3DBE9B3C156CACBCDE45C82 /* Pods-AutoTrader.debug.xcconfig */,
+				312DDB17B786F3EC952314B1 /* Pods-AutoTrader.release.xcconfig */,
+				E14BFFE516E11F361E0F04EE /* Pods-AutoTrader-AutoTraderUITests.debug.xcconfig */,
+				A9CA05BF1E17332A984A6943 /* Pods-AutoTrader-AutoTraderUITests.release.xcconfig */,
+				E9A6E88DD7AFBC2A2FF154D1 /* Pods-AutoTraderTests.debug.xcconfig */,
+				ABF5A3AF34768D45E823C8DA /* Pods-AutoTraderTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -257,9 +339,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 45DFD8E62BDA8D6C0032FB62 /* Build configuration list for PBXNativeTarget "AutoTrader" */;
 			buildPhases = (
+				4AB4E5AFBFAA9918644145EC /* [CP] Check Pods Manifest.lock */,
 				45DFD8B82BDA8D690032FB62 /* Sources */,
 				45DFD8B92BDA8D690032FB62 /* Frameworks */,
 				45DFD8BA2BDA8D690032FB62 /* Resources */,
+				CF5D14212BAE7AC39BAE435D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -274,6 +358,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 45DFD8E92BDA8D6C0032FB62 /* Build configuration list for PBXNativeTarget "AutoTraderTests" */;
 			buildPhases = (
+				9FB935CC42B5A69A19F51820 /* [CP] Check Pods Manifest.lock */,
 				45DFD8CE2BDA8D6B0032FB62 /* Sources */,
 				45DFD8CF2BDA8D6B0032FB62 /* Frameworks */,
 				45DFD8D02BDA8D6B0032FB62 /* Resources */,
@@ -292,9 +377,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 45DFD8EC2BDA8D6C0032FB62 /* Build configuration list for PBXNativeTarget "AutoTraderUITests" */;
 			buildPhases = (
+				785511DF6EF348D674F5A42B /* [CP] Check Pods Manifest.lock */,
 				45DFD8D82BDA8D6C0032FB62 /* Sources */,
 				45DFD8D92BDA8D6C0032FB62 /* Frameworks */,
 				45DFD8DA2BDA8D6C0032FB62 /* Resources */,
+				6F54C217EB661FE8567DC3FE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -338,6 +425,8 @@
 				Base,
 			);
 			mainGroup = 45DFD8B32BDA8D690032FB62;
+			packageReferences = (
+			);
 			productRefGroup = 45DFD8BD2BDA8D690032FB62 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -355,6 +444,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45DFD8C92BDA8D6B0032FB62 /* Assets.xcassets in Resources */,
+				456EB9012BF0C7030018D38B /* Colors.xcassets in Resources */,
 				45DFD8CC2BDA8D6B0032FB62 /* Base in Resources */,
 				45DFD8C72BDA8D690032FB62 /* Base in Resources */,
 			);
@@ -376,6 +466,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4AB4E5AFBFAA9918644145EC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AutoTrader-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F54C217EB661FE8567DC3FE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AutoTrader-AutoTraderUITests/Pods-AutoTrader-AutoTraderUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AutoTrader-AutoTraderUITests/Pods-AutoTrader-AutoTraderUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AutoTrader-AutoTraderUITests/Pods-AutoTrader-AutoTraderUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		785511DF6EF348D674F5A42B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AutoTrader-AutoTraderUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9FB935CC42B5A69A19F51820 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AutoTraderTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF5D14212BAE7AC39BAE435D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AutoTrader/Pods-AutoTrader-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AutoTrader/Pods-AutoTrader-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AutoTrader/Pods-AutoTrader-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		45DFD8B82BDA8D690032FB62 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -389,7 +582,12 @@
 				45DFD8C02BDA8D690032FB62 /* AppDelegate.swift in Sources */,
 				45212E752BDA900E00440C09 /* BotViewController.swift in Sources */,
 				45FBB5162BDC9E51005C8674 /* APIService.swift in Sources */,
+				457BAE5A2BF8B81B001AF323 /* User.swift in Sources */,
+				457BAE652BF8C934001AF323 /* WalletViewController.swift in Sources */,
+				457BAE5F2BF8C430001AF323 /* Notification.swift in Sources */,
+				45FBB51E2BDCA438005C8674 /* LoginViewController.swift in Sources */,
 				45DFD8C22BDA8D690032FB62 /* SceneDelegate.swift in Sources */,
+				457BAE582BF8B4B4001AF323 /* UserRegister.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,7 +680,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -497,7 +695,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -545,7 +743,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -554,7 +752,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -566,11 +764,13 @@
 		};
 		45DFD8E72BDA8D6C0032FB62 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3DBE9B3C156CACBCDE45C82 /* Pods-AutoTrader.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KNQWN32P6C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AutoTrader/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -578,6 +778,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -593,11 +794,13 @@
 		};
 		45DFD8E82BDA8D6C0032FB62 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 312DDB17B786F3EC952314B1 /* Pods-AutoTrader.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KNQWN32P6C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AutoTrader/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -605,6 +808,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -620,6 +824,7 @@
 		};
 		45DFD8EA2BDA8D6C0032FB62 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9A6E88DD7AFBC2A2FF154D1 /* Pods-AutoTraderTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -639,6 +844,7 @@
 		};
 		45DFD8EB2BDA8D6C0032FB62 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABF5A3AF34768D45E823C8DA /* Pods-AutoTraderTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -658,6 +864,7 @@
 		};
 		45DFD8ED2BDA8D6C0032FB62 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E14BFFE516E11F361E0F04EE /* Pods-AutoTrader-AutoTraderUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -675,6 +882,7 @@
 		};
 		45DFD8EE2BDA8D6C0032FB62 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9CA05BF1E17332A984A6943 /* Pods-AutoTrader-AutoTraderUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

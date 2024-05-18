@@ -1,0 +1,6 @@
+framework module Pods_AutoTrader_AutoTraderUITests {
+  umbrella header "Pods-AutoTrader-AutoTraderUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

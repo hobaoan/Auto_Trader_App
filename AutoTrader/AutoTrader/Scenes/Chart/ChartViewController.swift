@@ -8,10 +8,16 @@
 import UIKit
 
 final class ChartViewController: UIViewController {
-
+    
+    @IBOutlet weak private var chartView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setupChart()
+    }
+    
+    private func setupChart() {
+        
     }
 }
 
