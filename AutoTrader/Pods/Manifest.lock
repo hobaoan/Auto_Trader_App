@@ -9,26 +9,34 @@ PODS:
     - Reusable/View (= 4.1.2)
   - Reusable/Storyboard (4.1.2)
   - Reusable/View (4.1.2)
+  - SimpleLineChart (0.0.2)
   - SwiftAlgorithms (1.0.0)
+  - SwiftCSV (0.10.0)
 
 DEPENDENCIES:
   - Charts (= 4.1.0)
   - ObjectMapper (~> 4.4.2)
   - Reusable (= 4.1.2)
+  - SimpleLineChart (= 0.0.2)
+  - SwiftCSV (= 0.10.0)
 
 SPEC REPOS:
   trunk:
     - Charts
     - ObjectMapper
     - Reusable
+    - SimpleLineChart
     - SwiftAlgorithms
+    - SwiftCSV
 
 SPEC CHECKSUMS:
   Charts: ce0768268078eee0336f122c3c4ca248e4e204c5
   ObjectMapper: e6e4d91ff7f2861df7aecc536c92d8363f4c9677
   Reusable: 6bae6a5e8aa793c9c441db0213c863a64bce9136
+  SimpleLineChart: 49644a0e5e715abb5563271349666273e447966e
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
+  SwiftCSV: aabc26da8ff1e03ff8060263aa211f7cfa48f523
 
-PODFILE CHECKSUM: cf8e73dcf54c571d64706e2c9ce8260f8342f6c0
+PODFILE CHECKSUM: 5aaa4d858650f75a906a3095377a95fd3d890b2b
 
 COCOAPODS: 1.15.2

@@ -9,21 +9,33 @@ import UIKit
 
 final class LoginViewController: UIViewController {
 
+    @IBOutlet weak var emailText: UITextField!
+    @IBOutlet weak var passText: UITextField!
+    @IBOutlet weak var forgotPassLabel: UILabel!
+    @IBOutlet weak var registerLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupUI()
     }
     
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension LoginViewController {
+    @IBAction func buttonLoginTapped(_ sender: Any) {
     }
-    */
+}
 
+// MARK: - setupUI
+
+extension LoginViewController {
+    private func setupUI() {
+        configureTextField(textField: emailText)
+        configureTextField(textField: passText)
+    }
+    
+    private func configureTextField(textField: UITextField) {
+        textField.layer.cornerRadius = 15
+        textField.clipsToBounds = true
+    }
 }

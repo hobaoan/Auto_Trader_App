@@ -9,6 +9,8 @@ target 'AutoTrader' do
 	pod 'Reusable', '4.1.2'
 	pod 'ObjectMapper', '~> 4.4.2'
 	pod 'Charts', '4.1.0'
+	pod 'SimpleLineChart', '0.0.2'
+	pod 'SwiftCSV', '0.10.0'
 
   target 'AutoTraderTests' do
     inherit! :search_paths
