@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SimpleLineChart
 
 final class ChartViewController: UIViewController {
     
@@ -18,8 +17,7 @@ final class ChartViewController: UIViewController {
     @IBOutlet weak var dayButton: UIButton!
     @IBOutlet weak var chartView: UIView!
     
-    let stockData = generateStockDataFromCSV()
-    var lineChart: SimpleLineChart!
+    private let stockData = generateStockDataFromCSV()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,32 +26,27 @@ final class ChartViewController: UIViewController {
         buttonTapped(allButton)
     }
     
+    private func configChart() {
+        ChartConfigurator.configureChart(
+            in: chartView,
+            with: stockData,
+            lineColor: .blueStock,
+            lineShadowGradientStart: .blueShadow,
+            lineShadowGradientEnd: .greyCustom
+        )
+    }
 }
 
-// MARK: - configure line chart
+// MARK: - Action button tapped
 
 extension ChartViewController {
-    func configChart() {
-        let values = stockData.enumerated().map { index, data in
-            return SLCData(x: index, y: data.close)
+    @IBAction func predictionButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "toPredictionView", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toPredictionView" {
         }
-        
-        lineChart = SimpleLineChart(frame: chartView.bounds)
-        
-        let dataSet = SLCDataSet(graphPoints: values)
-        lineChart.loadPoints(dataSet: dataSet)
-        
-        let chartStyle = SLCChartStyle(backgroundGradient: false,
-                                       solidBackgroundColor: .greyCustom)
-        lineChart.setChartStyle(chartStyle: chartStyle)
-        
-        let lineStyle = SLCLineStyle(lineColor: .blueStock,
-                                     lineStroke: 3.0,
-                                     lineShadow: true,
-                                     lineShadowgradientStart: .blueShadow,
-                                     lineShadowgradientEnd: .greyCustom)
-        dataSet.setLineStyle(lineStyle)
-        chartView.addSubview(lineChart)
     }
 }
 

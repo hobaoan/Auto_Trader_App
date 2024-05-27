@@ -23,6 +23,13 @@ final class LoginViewController: UIViewController {
 
 extension LoginViewController {
     @IBAction func buttonLoginTapped(_ sender: Any) {
+        performSegue(withIdentifier: "toMainApp", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toMainApp" {
+            // Pass data to DetailViewController if needed
+        }
     }
 }
 

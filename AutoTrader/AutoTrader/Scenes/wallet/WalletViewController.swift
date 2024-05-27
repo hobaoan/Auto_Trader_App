@@ -9,21 +9,29 @@ import UIKit
 
 final class WalletViewController: UIViewController {
 
+    @IBOutlet weak var viewSum: UIView!
+    @IBOutlet weak var viewProfit: UIView!
+    @IBOutlet weak var viewSur: UIView!
+    @IBOutlet weak var viewCapital: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+}
 
-        // Do any additional setup after loading the view.
+// MARK: - setup UI
+
+extension WalletViewController {
+    private func setupUI() {
+        setCorner(view: viewSum)
+        setCorner(view: viewProfit)
+        setCorner(view: viewSur)
+        setCorner(view: viewCapital)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setCorner(view: UIView) {
+        view.layer.cornerRadius = 15
+        view.clipsToBounds = true
     }
-    */
-
 }

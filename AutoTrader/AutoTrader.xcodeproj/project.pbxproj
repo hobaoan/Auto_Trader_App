@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		217F5377EDF9E1BE6791F89F /* Pods_AutoTrader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85699AF3739B1F3090AC1186 /* Pods_AutoTrader.framework */; };
-		45212E752BDA900E00440C09 /* BotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45212E742BDA900E00440C09 /* BotViewController.swift */; };
+		45212E752BDA900E00440C09 /* PredictViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45212E742BDA900E00440C09 /* PredictViewController.swift */; };
 		45212E772BDA902000440C09 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45212E762BDA902000440C09 /* UserViewController.swift */; };
 		456EB9012BF0C7030018D38B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 456EB9002BF0C7030018D38B /* Colors.xcassets */; };
 		457BAE582BF8B4B4001AF323 /* UserRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457BAE572BF8B4B4001AF323 /* UserRegister.swift */; };
@@ -19,6 +19,12 @@
 		457BAE6A2BF8EFF1001AF323 /* SymbolTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 457BAE682BF8EFF1001AF323 /* SymbolTableViewCell.xib */; };
 		457BAE6C2BF8FCCC001AF323 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457BAE6B2BF8FCCC001AF323 /* ChartViewController.swift */; };
 		457BAE6E2BF9A059001AF323 /* StockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457BAE6D2BF9A059001AF323 /* StockData.swift */; };
+		457BAE702BFA081A001AF323 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457BAE6F2BFA081A001AF323 /* DetailViewController.swift */; };
+		457BAE722BFA097F001AF323 /* BotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457BAE712BFA097F001AF323 /* BotViewController.swift */; };
+		4598962B2BFB4DDC006E2447 /* PredictTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4598962A2BFB4DDC006E2447 /* PredictTableViewCell.xib */; };
+		4598962C2BFB4DDC006E2447 /* PredictTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459896292BFB4DDC006E2447 /* PredictTableViewCell.swift */; };
+		4598962E2BFC4437006E2447 /* ChartConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4598962D2BFC4437006E2447 /* ChartConfigurator.swift */; };
+		459896302BFDCDF9006E2447 /* showAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4598962F2BFDCDF9006E2447 /* showAlert.swift */; };
 		45DFD8C02BDA8D690032FB62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DFD8BF2BDA8D690032FB62 /* AppDelegate.swift */; };
 		45DFD8C22BDA8D690032FB62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DFD8C12BDA8D690032FB62 /* SceneDelegate.swift */; };
 		45DFD8C42BDA8D690032FB62 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DFD8C32BDA8D690032FB62 /* ListViewController.swift */; };
@@ -56,7 +62,7 @@
 
 /* Begin PBXFileReference section */
 		312DDB17B786F3EC952314B1 /* Pods-AutoTrader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoTrader.release.xcconfig"; path = "Target Support Files/Pods-AutoTrader/Pods-AutoTrader.release.xcconfig"; sourceTree = "<group>"; };
-		45212E742BDA900E00440C09 /* BotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotViewController.swift; sourceTree = "<group>"; };
+		45212E742BDA900E00440C09 /* PredictViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictViewController.swift; sourceTree = "<group>"; };
 		45212E762BDA902000440C09 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		456EB9002BF0C7030018D38B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		457BAE572BF8B4B4001AF323 /* UserRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegister.swift; sourceTree = "<group>"; };
@@ -67,6 +73,12 @@
 		457BAE682BF8EFF1001AF323 /* SymbolTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SymbolTableViewCell.xib; sourceTree = "<group>"; };
 		457BAE6B2BF8FCCC001AF323 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		457BAE6D2BF9A059001AF323 /* StockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockData.swift; sourceTree = "<group>"; };
+		457BAE6F2BFA081A001AF323 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		457BAE712BFA097F001AF323 /* BotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotViewController.swift; sourceTree = "<group>"; };
+		459896292BFB4DDC006E2447 /* PredictTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictTableViewCell.swift; sourceTree = "<group>"; };
+		4598962A2BFB4DDC006E2447 /* PredictTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PredictTableViewCell.xib; sourceTree = "<group>"; };
+		4598962D2BFC4437006E2447 /* ChartConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartConfigurator.swift; sourceTree = "<group>"; };
+		4598962F2BFDCDF9006E2447 /* showAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showAlert.swift; sourceTree = "<group>"; };
 		45DFD8BC2BDA8D690032FB62 /* AutoTrader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoTrader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45DFD8BF2BDA8D690032FB62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45DFD8C12BDA8D690032FB62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +177,15 @@
 				457BAE682BF8EFF1001AF323 /* SymbolTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		459896282BFB4D7C006E2447 /* DetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				459896292BFB4DDC006E2447 /* PredictTableViewCell.swift */,
+				4598962A2BFB4DDC006E2447 /* PredictTableViewCell.xib */,
+			);
+			path = DetailCell;
 			sourceTree = "<group>";
 		};
 		45DFD8B32BDA8D690032FB62 = {
@@ -301,6 +322,8 @@
 			isa = PBXGroup;
 			children = (
 				457BAE6D2BF9A059001AF323 /* StockData.swift */,
+				4598962D2BFC4437006E2447 /* ChartConfigurator.swift */,
+				4598962F2BFDCDF9006E2447 /* showAlert.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -326,7 +349,10 @@
 		45DFD8FA2BDA8E7C0032FB62 /* BotTrading */ = {
 			isa = PBXGroup;
 			children = (
-				45212E742BDA900E00440C09 /* BotViewController.swift */,
+				459896282BFB4D7C006E2447 /* DetailCell */,
+				45212E742BDA900E00440C09 /* PredictViewController.swift */,
+				457BAE6F2BFA081A001AF323 /* DetailViewController.swift */,
+				457BAE712BFA097F001AF323 /* BotViewController.swift */,
 			);
 			path = BotTrading;
 			sourceTree = "<group>";
@@ -466,6 +492,7 @@
 				45DFD8C92BDA8D6B0032FB62 /* Assets.xcassets in Resources */,
 				456EB9012BF0C7030018D38B /* Colors.xcassets in Resources */,
 				45DFD8CC2BDA8D6B0032FB62 /* Base in Resources */,
+				4598962B2BFB4DDC006E2447 /* PredictTableViewCell.xib in Resources */,
 				45DFD8C72BDA8D690032FB62 /* Base in Resources */,
 				457BAE6A2BF8EFF1001AF323 /* SymbolTableViewCell.xib in Resources */,
 			);
@@ -596,6 +623,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45FBB51C2BDC9EC9005C8674 /* Urls.swift in Sources */,
+				459896302BFDCDF9006E2447 /* showAlert.swift in Sources */,
 				45DFD8C42BDA8D690032FB62 /* ListViewController.swift in Sources */,
 				45FBB51A2BDC9E90005C8674 /* NetworkMonitor.swift in Sources */,
 				457BAE692BF8EFF1001AF323 /* SymbolTableViewCell.swift in Sources */,
@@ -603,8 +631,11 @@
 				457BAE6C2BF8FCCC001AF323 /* ChartViewController.swift in Sources */,
 				45212E772BDA902000440C09 /* UserViewController.swift in Sources */,
 				45DFD8C02BDA8D690032FB62 /* AppDelegate.swift in Sources */,
-				45212E752BDA900E00440C09 /* BotViewController.swift in Sources */,
+				45212E752BDA900E00440C09 /* PredictViewController.swift in Sources */,
+				457BAE702BFA081A001AF323 /* DetailViewController.swift in Sources */,
 				45FBB5162BDC9E51005C8674 /* APIService.swift in Sources */,
+				4598962E2BFC4437006E2447 /* ChartConfigurator.swift in Sources */,
+				4598962C2BFB4DDC006E2447 /* PredictTableViewCell.swift in Sources */,
 				457BAE6E2BF9A059001AF323 /* StockData.swift in Sources */,
 				457BAE5A2BF8B81B001AF323 /* User.swift in Sources */,
 				457BAE652BF8C934001AF323 /* WalletViewController.swift in Sources */,
@@ -612,6 +643,7 @@
 				45FBB51E2BDCA438005C8674 /* LoginViewController.swift in Sources */,
 				45DFD8C22BDA8D690032FB62 /* SceneDelegate.swift in Sources */,
 				457BAE582BF8B4B4001AF323 /* UserRegister.swift in Sources */,
+				457BAE722BFA097F001AF323 /* BotViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

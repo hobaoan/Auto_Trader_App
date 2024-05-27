@@ -54,15 +54,12 @@ extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "toChartView", sender: nil)
     }
-}
-
-extension ListViewController {
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toChartView" {
         }
     }
 }
-
 
 struct Symbol {
     let symbol: String
