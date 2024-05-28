@@ -43,7 +43,7 @@
             </objects>
             <point key="canvasLocation" x="2037.4045801526718" y="-1014.0845070422536"/>
         </scene>
-        <!--STB-->
+        <!--Chart View Controller-->
         <scene sceneID="vPr-fc-RKa">
             <objects>
                 <viewController id="WZb-qb-NuD" customClass="ChartViewController" customModule="AutoTrader" customModuleProvider="target" sceneMemberID="viewController">
@@ -485,7 +485,7 @@
                             <constraint firstItem="3j1-NE-qMF" firstAttribute="height" secondItem="knq-cX-g85" secondAttribute="height" multiplier="1.8" id="yn8-cT-3q1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="STB" id="ITH-29-jUC"/>
+                    <navigationItem key="navigationItem" id="ITH-29-jUC"/>
                     <connections>
                         <outlet property="allButton" destination="41K-en-adh" id="HnJ-zk-kvn"/>
                         <outlet property="av1View" destination="jYb-mh-4ts" id="zNc-S9-37m"/>
@@ -493,6 +493,12 @@
                         <outlet property="av3View" destination="jz6-rE-n3I" id="E10-iL-Voq"/>
                         <outlet property="chartView" destination="3lQ-2y-4lV" id="Llu-HD-dOy"/>
                         <outlet property="dayButton" destination="k0A-eA-q3C" id="LKg-8k-PYL"/>
+                        <outlet property="endDay" destination="Che-Ad-osU" id="buF-8d-CPq"/>
+                        <outlet property="endPrice" destination="Rwf-r7-LON" id="Ytx-zc-L5u"/>
+                        <outlet property="middleDay" destination="dfG-pB-Fxs" id="GEV-5x-YJC"/>
+                        <outlet property="middlePrice" destination="okU-TZ-fTn" id="0kL-ba-MAE"/>
+                        <outlet property="startDay" destination="qr3-LD-ylB" id="aWb-dw-yX1"/>
+                        <outlet property="startPrice" destination="TDy-IN-Sv1" id="PZq-wy-jQ4"/>
                         <outlet property="yearButton" destination="zkc-wc-ZD0" id="ypG-Kd-udX"/>
                         <segue destination="yay-P9-eDb" kind="push" identifier="toPredictionView" id="l64-QA-fP1"/>
                     </connections>

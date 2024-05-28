@@ -10,27 +10,46 @@ import Reusable
 import SimpleLineChart
 
 final class SymbolTableViewCell: UITableViewCell, NibReusable {
-
+    
     @IBOutlet weak var sympolLabel: UILabel!
     @IBOutlet weak var miniChartView: UIView!
     @IBOutlet weak var priceLabel: UILabel!
     
-    let stockData = generateStockDataFromCSV()
-    var lineChart: SimpleLineChart!
+    private var lineChart: SimpleLineChart!
+    private var color = UIColor()
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    func setContent(sympol: String, price: String, textColor: UIColor) {
-        sympolLabel.text = sympol
-        priceLabel.text = price
-        priceLabel.textColor = textColor
-        setupChart()
+    func setContent(stock: Stock) {
+        sympolLabel.text = stock.symbol
+        
+        let stockDataArray = stock.stockDatas
+        
+        if stockDataArray.count >= 2, let lastStockData = stockDataArray.last {
+            let secondLastStockData = stockDataArray[stockDataArray.count - 2]
+            
+            priceLabel.text = lastStockData.close.formattedWithSeparator()
+            
+            if lastStockData.close > secondLastStockData.close {
+                priceLabel.textColor = .greenStock
+                color = .greenStock
+            } else {
+                priceLabel.textColor = .redStock
+                color = .redStock
+            }
+        } else if let lastStockData = stockDataArray.last {
+            priceLabel.text = lastStockData.close.formattedWithSeparator()
+            priceLabel.textColor = .white
+        } else {
+            priceLabel.text = "N/A"
+            priceLabel.textColor = .white
+        }
     }
     
-    func setupChart() {
-        let values = stockData.enumerated().map { index, data in
+    func setupChart(stockDatas: [StockData]) {
+        let values = stockDatas.enumerated().map { index, data in
             return SLCData(x: index, y: data.close)
         }
         
@@ -43,8 +62,8 @@ final class SymbolTableViewCell: UITableViewCell, NibReusable {
                                        solidBackgroundColor: .greyCustom)
         lineChart.setChartStyle(chartStyle: chartStyle)
         
-        let lineStyle = SLCLineStyle(lineColor: .greenStock,
-                                     lineStroke: 1.0,
+        let lineStyle = SLCLineStyle(lineColor: color,
+                                     lineStroke: 1.4,
                                      lineShadow: false)
         dataSet.setLineStyle(lineStyle)
         miniChartView.addSubview(lineChart)

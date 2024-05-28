@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct StockData {
+struct StockDataTest {
     let date: String
     let close: Double
 }
 
-func generateStockDataFromCSV() -> [StockData] {
-    var stockDataArray: [StockData] = []
+func generateStockDataFromCSV() -> [StockDataTest] {
+    var stockDataArray: [StockDataTest] = []
     
     let csvData = """
     05/17/2024,28500.0
@@ -105,7 +105,7 @@ func generateStockDataFromCSV() -> [StockData] {
             let priceString = columns[1].trimmingCharacters(in: .whitespacesAndNewlines)
             
             if let price = Double(priceString.replacingOccurrences(of: ",", with: "")) {
-                let stockData = StockData(date: date, close: price)
+                let stockData = StockDataTest(date: date, close: price)
                 stockDataArray.append(stockData)
             }
         }
@@ -113,8 +113,8 @@ func generateStockDataFromCSV() -> [StockData] {
     return stockDataArray
 }
 
-func dataActual() -> [StockData] {
-    var stockDataArray: [StockData] = []
+func dataActual() -> [StockDataTest] {
+    var stockDataArray: [StockDataTest] = []
     
     let csvData = """
     03/29/2024,31600.0
@@ -164,7 +164,7 @@ func dataActual() -> [StockData] {
             let priceString = columns[1].trimmingCharacters(in: .whitespacesAndNewlines)
             
             if let price = Double(priceString.replacingOccurrences(of: ",", with: "")) {
-                let stockData = StockData(date: date, close: price)
+                let stockData = StockDataTest(date: date, close: price)
                 stockDataArray.append(stockData)
             }
         }
@@ -172,8 +172,8 @@ func dataActual() -> [StockData] {
     return stockDataArray
 }
 
-func dataPredicted() -> [StockData] {
-    var stockDataArray: [StockData] = []
+func dataPredicted() -> [StockDataTest] {
+    var stockDataArray: [StockDataTest] = []
     
     let csvData = """
     05/17/2024,28500.0
@@ -230,7 +230,7 @@ func dataPredicted() -> [StockData] {
             let priceString = columns[1].trimmingCharacters(in: .whitespacesAndNewlines)
             
             if let price = Double(priceString.replacingOccurrences(of: ",", with: "")) {
-                let stockData = StockData(date: date, close: price)
+                let stockData = StockDataTest(date: date, close: price)
                 stockDataArray.append(stockData)
             }
         }

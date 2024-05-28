@@ -17,24 +17,136 @@ final class ChartViewController: UIViewController {
     @IBOutlet weak var dayButton: UIButton!
     @IBOutlet weak var chartView: UIView!
     
-    private let stockData = generateStockDataFromCSV()
+    @IBOutlet weak var startDay: UILabel!
+    @IBOutlet weak var middleDay: UILabel!
+    @IBOutlet weak var endDay: UILabel!
+    @IBOutlet weak var startPrice: UILabel!
+    @IBOutlet weak var middlePrice: UILabel!
+    @IBOutlet weak var endPrice: UILabel!
+    
+    var symbol: String?
+    private var stockDatas: [StockData] = []
+    private let stockRepository: StockDataRepositoryType = StockDataRepository(apiService: .shared)
+    private let today = DateHelper.getCurrentDate()
+    private let oneMonthAgo = DateHelper.getDateMonthAgo()
+    private let oneYearAgo = DateHelper.getDateYearAgo()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        configChart()
+        fetchAllStockData()
+        setupNavigationBarTitle()
         buttonTapped(allButton)
     }
     
-    private func configChart() {
-        ChartConfigurator.configureChart(
+    private func configChart(stockDatas: [StockData]) {
+        chartView.subviews.forEach { $0.removeFromSuperview() }
+        ConfigureChart.configureChart(
             in: chartView,
-            with: stockData,
+            with: stockDatas,
             lineColor: .blueStock,
             lineShadowGradientStart: .blueShadow,
             lineShadowGradientEnd: .greyCustom
         )
     }
+}
+
+// MARK: - Handle data
+
+extension ChartViewController {
+    private func setupNavigationBarTitle() {
+        if let symbol = symbol {
+            self.title = symbol
+        }
+    }
+    
+    private func fetchAllStockData() {
+        guard let symbol = symbol else {
+            return
+        }
+        stockRepository.getStockWithSympol(sympol: symbol) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let stock):
+                self.stockDatas = stock.stockDatas
+                DispatchQueue.main.async {
+                    self.configChart(stockDatas: self.stockDatas)
+                    self.setupLabelChart()
+                }
+            case .failure(_):
+                self.showAlert(title: "ERROR", message: "No data response")
+            }
+        }
+    }
+    
+    private func fetchMonthStockData() {
+        guard let symbol = symbol else {
+            return
+        }
+        stockRepository.getStockWithTime(sympol: symbol, startDay: oneMonthAgo, endDay: today) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let stock):
+                self.stockDatas = stock.stockDatas
+                DispatchQueue.main.async {
+                    self.configChart(stockDatas: self.stockDatas)
+                    self.setupLabelChart()
+                }
+            case .failure(_):
+                self.showAlert(title: "ERROR", message: "No data response")
+            }
+        }
+    }
+    
+    private func fetchYearStockData() {
+        guard let symbol = symbol else {
+            return
+        }
+        stockRepository.getStockWithTime(sympol: symbol, startDay: oneYearAgo, endDay: today) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let stock):
+                self.stockDatas = stock.stockDatas
+                DispatchQueue.main.async {
+                    self.configChart(stockDatas: self.stockDatas)
+                    self.setupLabelChart()
+                }
+            case .failure(_):
+                self.showAlert(title: "ERROR", message: "No data response")
+            }
+        }
+    }
+    
+    private func setupLabelChart() {
+        guard !stockDatas.isEmpty else {
+            return
+        }
+        
+        let firstStockData = stockDatas.first
+        let middleIndex = stockDatas.count / 2
+        let middleStockData = stockDatas[middleIndex]
+        let lastStockData = stockDatas.last
+        
+        let startPriceText = firstStockData?.close.formattedWithSeparator() ?? ""
+        let middlePriceText = middleStockData.close.formattedWithSeparator()
+        let endPriceText = lastStockData?.close.formattedWithSeparator() ?? ""
+        
+        self.startPrice.text = startPriceText
+        self.middlePrice.text = middlePriceText
+        self.endPrice.text = endPriceText
+        
+        guard let firstDay = firstStockData?.date else { return }
+        guard let lastDay = lastStockData?.date else { return }
+        
+        let startDayText = DateHelper.convertDate(dateString: firstDay)
+        let middleDayText = DateHelper.convertDate(dateString: middleStockData.date)
+        let endDayText = DateHelper.convertDate(dateString: lastDay)
+        
+        self.startDay.text = startDayText
+        self.middleDay.text = middleDayText
+        self.endDay.text = endDayText
+    }
+    
 }
 
 // MARK: - Action button tapped
@@ -50,7 +162,7 @@ extension ChartViewController {
     }
 }
 
-// MARK: - setupUI
+// MARK: - Button filter stock data
 
 extension ChartViewController {
     @objc private func buttonTapped(_ sender: UIButton) {
@@ -58,8 +170,24 @@ extension ChartViewController {
         yearButton.backgroundColor = .opaqueSeparator
         dayButton.backgroundColor = .opaqueSeparator
         sender.backgroundColor = .systemOrange
+        handleButtonTap(for: sender)
+    }
+    
+    private func handleButtonTap(for button: UIButton) {
+        switch button {
+        case allButton:
+            fetchAllStockData()
+        case yearButton:
+            fetchYearStockData()
+        case dayButton:
+            fetchMonthStockData()
+        default:
+            break
+        }
     }
 }
+
+// MARK: - setupUI
 
 extension ChartViewController {
     private func setupUI() {

@@ -1,16 +1,15 @@
 //
-//  ChartConfigurator.swift
+//  configureChart.swift
 //  AutoTrader
 //
-//  Created by An Bảo on 21/05/2024.
+//  Created by An Bảo on 27/05/2024.
 //
 
 import UIKit
 import SimpleLineChart
 
-final class ChartConfigurator {
-
-    static func configureChart(in view: UIView, with data: [StockDataTest], lineColor: UIColor, lineShadowGradientStart: UIColor, lineShadowGradientEnd: UIColor) {
+struct ConfigureChart {
+    static func configureChart(in view: UIView, with data: [StockData], lineColor: UIColor, lineShadowGradientStart: UIColor, lineShadowGradientEnd: UIColor) {
         let values = data.enumerated().map { index, data in
             return SLCData(x: index, y: data.close)
         }
@@ -25,7 +24,7 @@ final class ChartConfigurator {
         lineChart.setChartStyle(chartStyle: chartStyle)
         
         let lineStyle = SLCLineStyle(lineColor: lineColor,
-                                     lineStroke: 3.0,
+                                     lineStroke: 2.0,
                                      lineShadow: true,
                                      lineShadowgradientStart: lineShadowGradientStart,
                                      lineShadowgradientEnd: lineShadowGradientEnd)
@@ -33,3 +32,4 @@ final class ChartConfigurator {
         view.addSubview(lineChart)
     }
 }
+

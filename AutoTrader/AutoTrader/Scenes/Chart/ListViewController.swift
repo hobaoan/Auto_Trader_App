@@ -12,40 +12,51 @@ final class ListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let symbols = [
-        Symbol(symbol: "STB", price: "27.450"),
-        Symbol(symbol: "VCB", price: "15.300"),
-        Symbol(symbol: "FPT", price: "10.750"),
-        Symbol(symbol: "BID", price: "22.100"),
-        Symbol(symbol: "MWG", price: "30.500"),
-        Symbol(symbol: "MPB", price: "22.800"),
-        Symbol(symbol: "AGB", price: "19.300"),
-    ]
+    private let stockRepository: StockDataRepositoryType = StockDataRepository(apiService: .shared)
+    private var stockDatas: [Stock] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
+        fetchStockData()
     }
     
     private func configTableView() {
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.reloadData()
         tableView.register(cellType: SymbolTableViewCell.self)
+    }
+}
+
+// MARK: - Handle data
+
+extension ListViewController {
+    private func fetchStockData() {
+        stockRepository.getListStock { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let stocks):
+                self.stockDatas = stocks
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            case .failure(_):
+                self.showAlert(title: "ERROR", message: "No data response")
+            }
+        }
     }
 }
 
 extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return symbols.count
+        return stockDatas.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: SymbolTableViewCell.self)
-        let symbolData = symbols[indexPath.row]
-        let price = Double(symbolData.price) ?? 0.0
-        let priceColor: UIColor = price > 20.0 ? .redStock : .greenStock
-        cell.setContent(sympol: symbolData.symbol, price: symbolData.price, textColor: priceColor)
+        let stockData = stockDatas[indexPath.row]
+        cell.setContent(stock: stockData)
+        cell.setupChart(stockDatas: stockData.stockDatas)
         return cell
     }
 }
@@ -57,11 +68,11 @@ extension ListViewController: UITableViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toChartView" {
+            if let chartViewController = segue.destination as? ChartViewController,
+               let indexPath = tableView.indexPathForSelectedRow {
+                let selectedStock = stockDatas[indexPath.row]
+                chartViewController.symbol = selectedStock.symbol
+            }
         }
     }
-}
-
-struct Symbol {
-    let symbol: String
-    let price: String
 }
