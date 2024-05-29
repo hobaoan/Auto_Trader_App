@@ -46,6 +46,17 @@
 		45FF092C2C04D85100AF86BC /* ConfigureChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF092B2C04D85100AF86BC /* ConfigureChart.swift */; };
 		45FF092E2C057C3100AF86BC /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF092D2C057C3100AF86BC /* String+Extension.swift */; };
 		45FF09302C05837500AF86BC /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF092F2C05837500AF86BC /* DateHelper.swift */; };
+		45FF09382C06CD2600AF86BC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF09372C06CD2600AF86BC /* UIView+Extension.swift */; };
+		45FF093C2C06DE9700AF86BC /* AnomalyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF093B2C06DE9700AF86BC /* AnomalyData.swift */; };
+		45FF094B2C070DBD00AF86BC /* SLCExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF093E2C070DBD00AF86BC /* SLCExtensions.swift */; };
+		45FF094C2C070DBD00AF86BC /* SLCChartStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF09402C070DBD00AF86BC /* SLCChartStyle.swift */; };
+		45FF094D2C070DBD00AF86BC /* SLCData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF09412C070DBD00AF86BC /* SLCData.swift */; };
+		45FF094E2C070DBD00AF86BC /* SLCDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF09422C070DBD00AF86BC /* SLCDataSet.swift */; };
+		45FF094F2C070DBD00AF86BC /* SLCLineStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF09432C070DBD00AF86BC /* SLCLineStyle.swift */; };
+		45FF09502C070DBD00AF86BC /* SLCPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF09442C070DBD00AF86BC /* SLCPeriod.swift */; };
+		45FF09512C070DBD00AF86BC /* SimpleLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF09462C070DBD00AF86BC /* SimpleLineChart.swift */; };
+		45FF09522C070DBD00AF86BC /* SLCEmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF09472C070DBD00AF86BC /* SLCEmptyState.swift */; };
+		45FF09532C070DBD00AF86BC /* SLCPeriodButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF09482C070DBD00AF86BC /* SLCPeriodButton.swift */; };
 		C6275F886434575A9046DE41 /* Pods_AutoTraderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 650FCB8E55142704284BD7D0 /* Pods_AutoTraderTests.framework */; };
 		FF33A6BA9B9D83604654E6E9 /* Pods_AutoTrader_AutoTraderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F54DAAA3091841B7423ED14 /* Pods_AutoTrader_AutoTraderUITests.framework */; };
 /* End PBXBuildFile section */
@@ -111,6 +122,17 @@
 		45FF092B2C04D85100AF86BC /* ConfigureChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureChart.swift; sourceTree = "<group>"; };
 		45FF092D2C057C3100AF86BC /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		45FF092F2C05837500AF86BC /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		45FF09372C06CD2600AF86BC /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		45FF093B2C06DE9700AF86BC /* AnomalyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnomalyData.swift; sourceTree = "<group>"; };
+		45FF093E2C070DBD00AF86BC /* SLCExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLCExtensions.swift; sourceTree = "<group>"; };
+		45FF09402C070DBD00AF86BC /* SLCChartStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLCChartStyle.swift; sourceTree = "<group>"; };
+		45FF09412C070DBD00AF86BC /* SLCData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLCData.swift; sourceTree = "<group>"; };
+		45FF09422C070DBD00AF86BC /* SLCDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLCDataSet.swift; sourceTree = "<group>"; };
+		45FF09432C070DBD00AF86BC /* SLCLineStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLCLineStyle.swift; sourceTree = "<group>"; };
+		45FF09442C070DBD00AF86BC /* SLCPeriod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLCPeriod.swift; sourceTree = "<group>"; };
+		45FF09462C070DBD00AF86BC /* SimpleLineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleLineChart.swift; sourceTree = "<group>"; };
+		45FF09472C070DBD00AF86BC /* SLCEmptyState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLCEmptyState.swift; sourceTree = "<group>"; };
+		45FF09482C070DBD00AF86BC /* SLCPeriodButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLCPeriodButton.swift; sourceTree = "<group>"; };
 		5F54DAAA3091841B7423ED14 /* Pods_AutoTrader_AutoTraderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoTrader_AutoTraderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		650FCB8E55142704284BD7D0 /* Pods_AutoTraderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoTraderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85699AF3739B1F3090AC1186 /* Pods_AutoTrader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoTrader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,6 +249,7 @@
 		45DFD8BE2BDA8D690032FB62 /* AutoTrader */ = {
 			isa = PBXGroup;
 			children = (
+				45FF094A2C070DBD00AF86BC /* SimpleLineChart */,
 				45DFD8F12BDA8DF60032FB62 /* Application */,
 				45DFD8F02BDA8DE90032FB62 /* Scenes */,
 				45DFD8F32BDA8E260032FB62 /* Service */,
@@ -338,7 +361,7 @@
 		45DFD8F72BDA8E570032FB62 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				457BAE6D2BF9A059001AF323 /* StockDataTest.swift */,
+				45FF093D2C06DE9C00AF86BC /* DataTest */,
 				4598962D2BFC4437006E2447 /* ChartConfigurator.swift */,
 				4598962F2BFDCDF9006E2447 /* showAlert.swift */,
 				45FF092B2C04D85100AF86BC /* ConfigureChart.swift */,
@@ -398,8 +421,58 @@
 			children = (
 				45FF09282C04CF9500AF86BC /* Double+Extension.swift */,
 				45FF092D2C057C3100AF86BC /* String+Extension.swift */,
+				45FF09372C06CD2600AF86BC /* UIView+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		45FF093D2C06DE9C00AF86BC /* DataTest */ = {
+			isa = PBXGroup;
+			children = (
+				457BAE6D2BF9A059001AF323 /* StockDataTest.swift */,
+				45FF093B2C06DE9700AF86BC /* AnomalyData.swift */,
+			);
+			path = DataTest;
+			sourceTree = "<group>";
+		};
+		45FF093F2C070DBD00AF86BC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				45FF093E2C070DBD00AF86BC /* SLCExtensions.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		45FF09452C070DBD00AF86BC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				45FF09402C070DBD00AF86BC /* SLCChartStyle.swift */,
+				45FF09412C070DBD00AF86BC /* SLCData.swift */,
+				45FF09422C070DBD00AF86BC /* SLCDataSet.swift */,
+				45FF09432C070DBD00AF86BC /* SLCLineStyle.swift */,
+				45FF09442C070DBD00AF86BC /* SLCPeriod.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		45FF09492C070DBD00AF86BC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				45FF09462C070DBD00AF86BC /* SimpleLineChart.swift */,
+				45FF09472C070DBD00AF86BC /* SLCEmptyState.swift */,
+				45FF09482C070DBD00AF86BC /* SLCPeriodButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		45FF094A2C070DBD00AF86BC /* SimpleLineChart */ = {
+			isa = PBXGroup;
+			children = (
+				45FF093F2C070DBD00AF86BC /* Common */,
+				45FF09452C070DBD00AF86BC /* Model */,
+				45FF09492C070DBD00AF86BC /* View */,
+			);
+			path = SimpleLineChart;
 			sourceTree = "<group>";
 		};
 		4F9D2091DB52AA580E68DDB8 /* Pods */ = {
@@ -659,6 +732,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45FF094B2C070DBD00AF86BC /* SLCExtensions.swift in Sources */,
 				45FBB51C2BDC9EC9005C8674 /* Urls.swift in Sources */,
 				459896302BFDCDF9006E2447 /* showAlert.swift in Sources */,
 				45FF09212C046F9F00AF86BC /* Stock.swift in Sources */,
@@ -667,16 +741,24 @@
 				45FF09292C04CF9500AF86BC /* Double+Extension.swift in Sources */,
 				45FBB51A2BDC9E90005C8674 /* NetworkMonitor.swift in Sources */,
 				457BAE692BF8EFF1001AF323 /* SymbolTableViewCell.swift in Sources */,
+				45FF09532C070DBD00AF86BC /* SLCPeriodButton.swift in Sources */,
 				45FBB5182BDC9E64005C8674 /* NetworkError.swift in Sources */,
 				45FF092E2C057C3100AF86BC /* String+Extension.swift in Sources */,
 				457BAE6C2BF8FCCC001AF323 /* ChartViewController.swift in Sources */,
+				45FF09522C070DBD00AF86BC /* SLCEmptyState.swift in Sources */,
 				45FF09232C0472A200AF86BC /* StockData.swift in Sources */,
 				45212E772BDA902000440C09 /* UserViewController.swift in Sources */,
+				45FF09512C070DBD00AF86BC /* SimpleLineChart.swift in Sources */,
 				45DFD8C02BDA8D690032FB62 /* AppDelegate.swift in Sources */,
 				45212E752BDA900E00440C09 /* PredictViewController.swift in Sources */,
 				457BAE702BFA081A001AF323 /* DetailViewController.swift in Sources */,
+				45FF094C2C070DBD00AF86BC /* SLCChartStyle.swift in Sources */,
 				45FBB5162BDC9E51005C8674 /* APIService.swift in Sources */,
 				4598962E2BFC4437006E2447 /* ChartConfigurator.swift in Sources */,
+				45FF094F2C070DBD00AF86BC /* SLCLineStyle.swift in Sources */,
+				45FF093C2C06DE9700AF86BC /* AnomalyData.swift in Sources */,
+				45FF09382C06CD2600AF86BC /* UIView+Extension.swift in Sources */,
+				45FF09502C070DBD00AF86BC /* SLCPeriod.swift in Sources */,
 				4598962C2BFB4DDC006E2447 /* PredictTableViewCell.swift in Sources */,
 				45FF092C2C04D85100AF86BC /* ConfigureChart.swift in Sources */,
 				457BAE6E2BF9A059001AF323 /* StockDataTest.swift in Sources */,
@@ -685,8 +767,10 @@
 				457BAE652BF8C934001AF323 /* WalletViewController.swift in Sources */,
 				457BAE5F2BF8C430001AF323 /* Notification.swift in Sources */,
 				45FBB51E2BDCA438005C8674 /* LoginViewController.swift in Sources */,
+				45FF094D2C070DBD00AF86BC /* SLCData.swift in Sources */,
 				45DFD8C22BDA8D690032FB62 /* SceneDelegate.swift in Sources */,
 				457BAE582BF8B4B4001AF323 /* UserRegister.swift in Sources */,
+				45FF094E2C070DBD00AF86BC /* SLCDataSet.swift in Sources */,
 				457BAE722BFA097F001AF323 /* BotViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -795,7 +879,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -853,7 +937,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

@@ -12,8 +12,9 @@ final class DetailViewController: UIViewController {
     @IBOutlet weak var chartView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
-    private let stockPredictData = dataPredicted()
-    
+    private let stockPredictData = dataPredictedAnomaly()
+    private var lineChart: SimpleLineChart!
+
     let symbols = [
         Cell(symbol: "20/05/2024", price: "27.450"),
         Cell(symbol: "21/05/2024", price: "15.300"),
@@ -37,18 +38,18 @@ final class DetailViewController: UIViewController {
     }
     
     private func configChart() {
-        ChartConfigurator.configureChart(
+        ConfigureChart.configureChartAnomaly (
             in: chartView,
             with: stockPredictData,
-            lineColor: .greenStock,
-            lineShadowGradientStart: .greenShadow,
+            lineColor: .blueStock,
+            sizePoint: 8.0,
+            lineShadowGradientStart: .blueShadow,
             lineShadowGradientEnd: .greyCustom
         )
     }
 }
 
 extension DetailViewController: UITableViewDataSource {
-    
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return symbols.count
     }

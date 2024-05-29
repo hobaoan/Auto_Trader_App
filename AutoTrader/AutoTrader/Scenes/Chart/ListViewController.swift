@@ -7,16 +7,19 @@
 
 import UIKit
 import Reusable
+import MaterialActivityIndicator
 
 final class ListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
     private let stockRepository: StockDataRepositoryType = StockDataRepository(apiService: .shared)
+    private let indicator = MaterialActivityIndicatorView()
     private var stockDatas: [Stock] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.setupIndicator(indicator)
         configTableView()
         fetchStockData()
     }
@@ -32,6 +35,7 @@ final class ListViewController: UIViewController {
 
 extension ListViewController {
     private func fetchStockData() {
+        indicator.startAnimating()
         stockRepository.getListStock { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -39,6 +43,9 @@ extension ListViewController {
                 self.stockDatas = stocks
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.indicator.stopAnimating()
+                    }
                 }
             case .failure(_):
                 self.showAlert(title: "ERROR", message: "No data response")

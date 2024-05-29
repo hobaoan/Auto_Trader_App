@@ -6,13 +6,12 @@
 //
 
 import UIKit
-import SimpleLineChart
 
 final class ChartConfigurator {
 
     static func configureChart(in view: UIView, with data: [StockDataTest], lineColor: UIColor, lineShadowGradientStart: UIColor, lineShadowGradientEnd: UIColor) {
         let values = data.enumerated().map { index, data in
-            return SLCData(x: index, y: data.close)
+            return SLCData(x: index, y: data.close, z: Int(data.close))
         }
         
         let lineChart = SimpleLineChart(frame: view.bounds)

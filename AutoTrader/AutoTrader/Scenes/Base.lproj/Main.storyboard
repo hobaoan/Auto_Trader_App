@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vHE-by-dhu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8aN-Bl-5ai">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
@@ -769,14 +769,14 @@
                                 <rect key="frame" x="0.0" y="375.66666666666669" width="393" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prediction price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIE-eW-PES">
-                                        <rect key="frame" x="20" y="0.0" width="176.66666666666666" height="40"/>
+                                        <rect key="frame" x="20" y="0.0" width="186.66666666666666" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <color key="textColor" systemColor="opaqueSeparatorColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19/05/2024 - 10/06/2024" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ws6-Wi-frX">
-                                        <rect key="frame" x="196.66666666666663" y="0.0" width="176.33333333333337" height="40"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19/05/2024 - 10/06/2024" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ws6-Wi-frX">
+                                        <rect key="frame" x="206.66666666666663" y="0.0" width="186.33333333333337" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                         <color key="textColor" systemColor="opaqueSeparatorColor"/>
@@ -793,7 +793,7 @@
                                     <constraint firstItem="nIE-eW-PES" firstAttribute="leading" secondItem="yIJ-LY-9wP" secondAttribute="leading" constant="20" id="ad0-HY-5An"/>
                                     <constraint firstItem="ws6-Wi-frX" firstAttribute="width" secondItem="nIE-eW-PES" secondAttribute="width" id="dZ7-8Y-tnw"/>
                                     <constraint firstAttribute="bottom" secondItem="nIE-eW-PES" secondAttribute="bottom" id="gDP-sF-xXp"/>
-                                    <constraint firstAttribute="trailing" secondItem="ws6-Wi-frX" secondAttribute="trailing" constant="20" id="q3l-xp-je3"/>
+                                    <constraint firstAttribute="trailing" secondItem="ws6-Wi-frX" secondAttribute="trailing" id="q3l-xp-je3"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lTA-7Y-N4W">
@@ -921,11 +921,32 @@
                                             <action selector="detailButtonTapped:" destination="yay-P9-eDb" eventType="touchUpInside" id="bsB-nZ-Ygn"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hMB-kH-cEH">
+                                        <rect key="frame" x="15" y="23.666666666666742" width="15" height="15"/>
+                                        <color key="backgroundColor" red="1" green="0.022464788003309977" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="15" id="KAO-rF-z1r"/>
+                                            <constraint firstAttribute="height" constant="15" id="Yca-2n-QPw"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anomaly point" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6e-td-KJd">
+                                        <rect key="frame" x="45" y="10" width="188" height="42.333333333333336"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <color key="textColor" systemColor="opaqueSeparatorColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="w6e-td-KJd" firstAttribute="top" secondItem="7oH-2G-Ztm" secondAttribute="top" constant="10" id="17j-j7-mB1"/>
+                                    <constraint firstItem="hMB-kH-cEH" firstAttribute="centerY" secondItem="7oH-2G-Ztm" secondAttribute="centerY" id="7cx-hr-1pR"/>
+                                    <constraint firstItem="hMB-kH-cEH" firstAttribute="leading" secondItem="7oH-2G-Ztm" secondAttribute="leading" constant="15" id="DDK-6b-b4b"/>
                                     <constraint firstAttribute="trailing" secondItem="7Im-ss-8tW" secondAttribute="trailing" id="Gti-RV-Lei"/>
                                     <constraint firstItem="7Im-ss-8tW" firstAttribute="centerY" secondItem="7oH-2G-Ztm" secondAttribute="centerY" id="J7H-C7-kGb"/>
+                                    <constraint firstItem="w6e-td-KJd" firstAttribute="leading" secondItem="hMB-kH-cEH" secondAttribute="trailing" constant="15" id="JCp-f2-HGH"/>
+                                    <constraint firstItem="7Im-ss-8tW" firstAttribute="leading" secondItem="w6e-td-KJd" secondAttribute="trailing" constant="20" id="oVr-i0-a1b"/>
+                                    <constraint firstAttribute="bottom" secondItem="w6e-td-KJd" secondAttribute="bottom" constant="10" id="pCO-bb-flw"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ooT-Dj-28l">
@@ -974,13 +995,15 @@
                     <connections>
                         <outlet property="predictChartView" destination="gaY-W0-eRK" id="kGI-nb-zv6"/>
                         <outlet property="realChartView" destination="a6r-dy-Qtw" id="36D-3q-EcS"/>
+                        <outlet property="viewAnomaly" destination="hMB-kH-cEH" id="yQt-df-bgn"/>
+                        <outlet property="viewInfo" destination="yIJ-LY-9wP" id="DWM-eE-tof"/>
                         <segue destination="9pl-pV-d1K" kind="push" identifier="toDetailView" id="eiS-KB-g63"/>
                         <segue destination="PHQ-wd-M3Y" kind="presentation" identifier="toBotView" id="app-Vg-bay"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uOh-xK-cG2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3964" y="-1014"/>
+            <point key="canvasLocation" x="3962.5954198473282" y="-1014.0845070422536"/>
         </scene>
         <!--Detail Prediction-->
         <scene sceneID="Wzo-1Y-F9f">

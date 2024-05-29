@@ -7,7 +7,6 @@
 
 import UIKit
 import Reusable
-import SimpleLineChart
 
 final class SymbolTableViewCell: UITableViewCell, NibReusable {
     
@@ -50,7 +49,7 @@ final class SymbolTableViewCell: UITableViewCell, NibReusable {
     
     func setupChart(stockDatas: [StockData]) {
         let values = stockDatas.enumerated().map { index, data in
-            return SLCData(x: index, y: data.close)
+            return SLCData(x: index, y: data.close, z: Int(data.close))
         }
         
         lineChart = SimpleLineChart(frame: miniChartView.bounds)

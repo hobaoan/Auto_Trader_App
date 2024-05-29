@@ -158,6 +158,9 @@ extension ChartViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toPredictionView" {
+            if let predictViewController = segue.destination as? PredictViewController {
+                predictViewController.stockDatas = self.stockDatas
+            }
         }
     }
 }
