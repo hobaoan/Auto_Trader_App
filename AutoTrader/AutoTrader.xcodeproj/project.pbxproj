@@ -57,6 +57,10 @@
 		45FF09512C070DBD00AF86BC /* SimpleLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF09462C070DBD00AF86BC /* SimpleLineChart.swift */; };
 		45FF09522C070DBD00AF86BC /* SLCEmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF09472C070DBD00AF86BC /* SLCEmptyState.swift */; };
 		45FF09532C070DBD00AF86BC /* SLCPeriodButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF09482C070DBD00AF86BC /* SLCPeriodButton.swift */; };
+		45FF09632C076F6C00AF86BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45DFD8CA2BDA8D6B0032FB62 /* LaunchScreen.storyboard */; };
+		45FF09672C07704200AF86BC /* AgentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF09662C07704200AF86BC /* AgentViewController.swift */; };
+		45FF096C2C07727300AF86BC /* AgentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF096B2C07727300AF86BC /* AgentData.swift */; };
+		45FF096F2C0B0FC100AF86BC /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF096E2C0B0FC100AF86BC /* Agent.swift */; };
 		C6275F886434575A9046DE41 /* Pods_AutoTraderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 650FCB8E55142704284BD7D0 /* Pods_AutoTraderTests.framework */; };
 		FF33A6BA9B9D83604654E6E9 /* Pods_AutoTrader_AutoTraderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F54DAAA3091841B7423ED14 /* Pods_AutoTrader_AutoTraderUITests.framework */; };
 /* End PBXBuildFile section */
@@ -133,6 +137,9 @@
 		45FF09462C070DBD00AF86BC /* SimpleLineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleLineChart.swift; sourceTree = "<group>"; };
 		45FF09472C070DBD00AF86BC /* SLCEmptyState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLCEmptyState.swift; sourceTree = "<group>"; };
 		45FF09482C070DBD00AF86BC /* SLCPeriodButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLCPeriodButton.swift; sourceTree = "<group>"; };
+		45FF09662C07704200AF86BC /* AgentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentViewController.swift; sourceTree = "<group>"; };
+		45FF096B2C07727300AF86BC /* AgentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentData.swift; sourceTree = "<group>"; };
+		45FF096E2C0B0FC100AF86BC /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
 		5F54DAAA3091841B7423ED14 /* Pods_AutoTrader_AutoTraderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoTrader_AutoTraderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		650FCB8E55142704284BD7D0 /* Pods_AutoTraderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoTraderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85699AF3739B1F3090AC1186 /* Pods_AutoTrader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoTrader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -282,6 +289,7 @@
 		45DFD8EF2BDA8DE40032FB62 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				45FF096D2C0B0FA600AF86BC /* Agent */,
 				45FF091F2C046F8D00AF86BC /* Stock */,
 				457BAE5B2BF8B8BF001AF323 /* Notification */,
 				457BAE562BF8B4AA001AF323 /* User */,
@@ -395,6 +403,7 @@
 				45212E742BDA900E00440C09 /* PredictViewController.swift */,
 				457BAE6F2BFA081A001AF323 /* DetailViewController.swift */,
 				457BAE712BFA097F001AF323 /* BotViewController.swift */,
+				45FF09662C07704200AF86BC /* AgentViewController.swift */,
 			);
 			path = BotTrading;
 			sourceTree = "<group>";
@@ -431,6 +440,7 @@
 			children = (
 				457BAE6D2BF9A059001AF323 /* StockDataTest.swift */,
 				45FF093B2C06DE9700AF86BC /* AnomalyData.swift */,
+				45FF096B2C07727300AF86BC /* AgentData.swift */,
 			);
 			path = DataTest;
 			sourceTree = "<group>";
@@ -473,6 +483,14 @@
 				45FF09492C070DBD00AF86BC /* View */,
 			);
 			path = SimpleLineChart;
+			sourceTree = "<group>";
+		};
+		45FF096D2C0B0FA600AF86BC /* Agent */ = {
+			isa = PBXGroup;
+			children = (
+				45FF096E2C0B0FC100AF86BC /* Agent.swift */,
+			);
+			path = Agent;
 			sourceTree = "<group>";
 		};
 		4F9D2091DB52AA580E68DDB8 /* Pods */ = {
@@ -599,6 +617,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45FF09632C076F6C00AF86BC /* LaunchScreen.storyboard in Resources */,
 				45FF09262C048D8400AF86BC /* Main.storyboard in Resources */,
 				45DFD8C92BDA8D6B0032FB62 /* Assets.xcassets in Resources */,
 				456EB9012BF0C7030018D38B /* Colors.xcassets in Resources */,
@@ -734,10 +753,12 @@
 			files = (
 				45FF094B2C070DBD00AF86BC /* SLCExtensions.swift in Sources */,
 				45FBB51C2BDC9EC9005C8674 /* Urls.swift in Sources */,
+				45FF09672C07704200AF86BC /* AgentViewController.swift in Sources */,
 				459896302BFDCDF9006E2447 /* showAlert.swift in Sources */,
 				45FF09212C046F9F00AF86BC /* Stock.swift in Sources */,
 				45FF09302C05837500AF86BC /* DateHelper.swift in Sources */,
 				45DFD8C42BDA8D690032FB62 /* ListViewController.swift in Sources */,
+				45FF096C2C07727300AF86BC /* AgentData.swift in Sources */,
 				45FF09292C04CF9500AF86BC /* Double+Extension.swift in Sources */,
 				45FBB51A2BDC9E90005C8674 /* NetworkMonitor.swift in Sources */,
 				457BAE692BF8EFF1001AF323 /* SymbolTableViewCell.swift in Sources */,
@@ -771,6 +792,7 @@
 				45DFD8C22BDA8D690032FB62 /* SceneDelegate.swift in Sources */,
 				457BAE582BF8B4B4001AF323 /* UserRegister.swift in Sources */,
 				45FF094E2C070DBD00AF86BC /* SLCDataSet.swift in Sources */,
+				45FF096F2C0B0FC100AF86BC /* Agent.swift in Sources */,
 				457BAE722BFA097F001AF323 /* BotViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

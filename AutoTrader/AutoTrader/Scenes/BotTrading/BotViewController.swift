@@ -12,6 +12,8 @@ final class BotViewController: UIViewController {
     
     private let datePicker = DatePicker()
     private let today = Date()
+    private var currentDay = ""
+    private var futureDay = ""
     
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var timeStart: UILabel!
@@ -32,6 +34,7 @@ extension BotViewController {
         let year = calendar.component(.year, from: today)
         
         let formattedDate = String(format: "%02d/%02d/%04d", day, month, year)
+        self.currentDay = formattedDate
         timeStart.text = formattedDate
     }
     
@@ -46,6 +49,32 @@ extension BotViewController {
         
         return endDate >= startDate
     }
+    
+    private func checkInput() -> Bool {
+        guard let amountText = amountTextField.text, !amountText.isEmpty else {
+            showAlert(title: "Invalid Input", message: "Input cannot be empty")
+            return false
+        }
+        
+        guard isValidPositiveNumber(amountText) else {
+            showAlert(title: "Invalid Input", message: "Amount must be a positive number")
+            return false
+        }
+        
+        if timeEnd.text?.isEmpty ?? true {
+            showAlert(title: "Invalid Input", message: "Input cannot be empty")
+            return false
+        }
+        
+        return true
+    }
+    
+    private func isValidPositiveNumber(_ text: String) -> Bool {
+        if let amount = Double(text), amount > 0 {
+            return true
+        }
+        return false
+    }
 }
 
 extension BotViewController {
@@ -55,6 +84,7 @@ extension BotViewController {
                 let currentYear = Calendar.current.component(.year, from: Date())
                 let formattedDate = String(format: "%02d/%02d/%04d", day, month, currentYear)
                 if self.isEndDateValid(endDate: formattedDate) {
+                    self.futureDay = formattedDate
                     self.timeEnd.text = formattedDate
                 } else {
                     self.showAlert(title: "Invalid Date", message: "End date cannot be before start date")
@@ -64,8 +94,23 @@ extension BotViewController {
         }
         datePicker.show(in: self, on: sender)
     }
-    
+}
+
+extension BotViewController {
     @IBAction func investButtonTapped(_ sender: Any) {
+        if checkInput() {
+            performSegue(withIdentifier: "toAgentView", sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toAgentView" {
+            if let agentViewController = segue.destination as? AgentViewController {
+                agentViewController.currentDay = self.currentDay
+                agentViewController.futureDay = self.futureDay
+                agentViewController.amount = self.amountTextField.text ?? "0"
+            }
+        }
     }
 }
 

@@ -224,7 +224,7 @@ private extension SimpleLineChart {
             context.restoreGState()
         }
         
-        // MARK: Data points
+        // MARK: Anomaly points
         let circleDiameter = data.lineStyle.circleDiameter
         UIColor.red.setFill()
         for i in 0..<data.filteredGraphPoints.count {
@@ -242,6 +242,41 @@ private extension SimpleLineChart {
                     )
                 )
                 circle.fill()
+            }
+        }
+        
+        // MARK: Agent points
+        let agentPoint = data.lineStyle.agentPoint
+        for i in 0..<data.filteredGraphPoints.count {
+            let x = columnXPoint(data.filteredGraphPoints[i].x)
+            let y = columnYPoint(data.filteredGraphPoints[i].y)
+            
+            if data.filteredGraphPoints[i].z == 1 {
+                UIColor.green.setFill()
+                let point1 = CGPoint(x: x, y: y - agentPoint / 2)
+                let point2 = CGPoint(x: x - agentPoint / 2, y: y + agentPoint / 2)
+                let point3 = CGPoint(x: x + agentPoint / 2, y: y + agentPoint / 2)
+                
+                // Create the triangle path
+                let triangleUp = UIBezierPath()
+                triangleUp.move(to: point1)
+                triangleUp.addLine(to: point2)
+                triangleUp.addLine(to: point3)
+                triangleUp.close()
+                
+                triangleUp.fill()
+                
+            } else if data.filteredGraphPoints[i].z == 2 {
+                UIColor.red.setFill()
+                let point1 = CGPoint(x: x, y: y + agentPoint / 2)
+                let point2 = CGPoint(x: x - agentPoint / 2, y: y - agentPoint / 2)
+                let point3 = CGPoint(x: x + agentPoint / 2, y: y - agentPoint / 2)
+                let triangleDown = UIBezierPath()
+                triangleDown.move(to: point1)
+                triangleDown.addLine(to: point2)
+                triangleDown.addLine(to: point3)
+                triangleDown.close()
+                triangleDown.fill()
             }
         }
     }

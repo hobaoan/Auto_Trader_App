@@ -11,6 +11,7 @@ public class SLCLineStyle {
     var lineColor: UIColor
     var lineStroke: CGFloat
     var circleDiameter: CGFloat
+    var agentPoint: CGFloat
     
     var lineShadow: Bool = true
     var lineShadowgradientStart: UIColor
@@ -19,12 +20,14 @@ public class SLCLineStyle {
     public init(lineColor: UIColor = .white,
                 lineStroke: CGFloat = 5.0,
                 circleDiameter: CGFloat = 0.0,
+                agentPoint: CGFloat = 0.0,
                 lineShadow: Bool = true,
                 lineShadowgradientStart: UIColor = UIColor.hexStringToUIColor(hex: "FEB775"),
                 lineShadowgradientEnd: UIColor = UIColor.hexStringToUIColor(hex: "FD4345")) {
         self.lineColor = lineColor
         self.lineStroke = lineStroke
         self.circleDiameter = circleDiameter
+        self.agentPoint = agentPoint
         self.lineShadow = lineShadow
         self.lineShadowgradientStart = lineShadowgradientStart
         self.lineShadowgradientEnd = lineShadowgradientEnd
