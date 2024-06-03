@@ -146,7 +146,6 @@ extension ChartViewController {
         self.middleDay.text = middleDayText
         self.endDay.text = endDayText
     }
-    
 }
 
 // MARK: - Action button tapped

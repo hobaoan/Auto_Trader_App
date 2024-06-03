@@ -12,14 +12,22 @@ struct APIService {
     
     private init() {}
     
-    func fetchData<T: Decodable>(urlString: String, completion: @escaping (Result<T, Error>) -> Void) {
+    func fetchData<T: Decodable>(urlString: String, token: String? = nil, completion: @escaping (Result<T, Error>) -> Void) {
         guard let url = URL(string: urlString) else {
             completion(.failure(NetworkError.invalidURL))
             return
         }
         
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        if let token = token {
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
+        
         let session = URLSession.shared
-        let task = session.dataTask(with: url) { data, response, error in
+        let task = session.dataTask(with: request) { data, response, error in
             if let error = error {
                 completion(.failure(error))
                 return
@@ -46,7 +54,8 @@ struct APIService {
         task.resume()
     }
     
-    func postData<T: Decodable>(urlString: String, parameters: [String: Any], completion: @escaping (Result<T, Error>) -> Void) {
+    
+    func postData<T: Decodable>(urlString: String, token: String? = nil, parameters: [String: Any], completion: @escaping (Result<T, Error>) -> Void) {
         guard let url = URL(string: urlString) else {
             completion(.failure(NetworkError.invalidURL))
             return
@@ -63,6 +72,10 @@ struct APIService {
         }
         
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        if let token = token {
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
         
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
@@ -88,6 +101,45 @@ struct APIService {
             } catch {
                 completion(.failure(error))
             }
+        }
+        task.resume()
+    }
+    
+    func putData(urlString: String, token: String? = nil, parameters: [String: Any], completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let url = URL(string: urlString) else {
+            completion(.failure(NetworkError.invalidURL))
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
+        } catch {
+            completion(.failure(error))
+            return
+        }
+        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        if let token = token {
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
+        
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                completion(.failure(NetworkError.invalidResponse))
+                return
+            }
+            
+            completion(.success(()))
         }
         task.resume()
     }

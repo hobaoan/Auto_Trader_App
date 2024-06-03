@@ -61,6 +61,11 @@
 		45FF09672C07704200AF86BC /* AgentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF09662C07704200AF86BC /* AgentViewController.swift */; };
 		45FF096C2C07727300AF86BC /* AgentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF096B2C07727300AF86BC /* AgentData.swift */; };
 		45FF096F2C0B0FC100AF86BC /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF096E2C0B0FC100AF86BC /* Agent.swift */; };
+		45FF09712C0C5BA600AF86BC /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF09702C0C5BA600AF86BC /* UserRepository.swift */; };
+		45FF09742C0C5E9A00AF86BC /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF09732C0C5E9A00AF86BC /* Wallet.swift */; };
+		45FF09762C0C695C00AF86BC /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF09752C0C695C00AF86BC /* Login.swift */; };
+		45FF09792C0DBB1700AF86BC /* WalletRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF09782C0DBB1700AF86BC /* WalletRepository.swift */; };
+		45FF097B2C0DBD1E00AF86BC /* ActionWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF097A2C0DBD1E00AF86BC /* ActionWalletViewController.swift */; };
 		C6275F886434575A9046DE41 /* Pods_AutoTraderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 650FCB8E55142704284BD7D0 /* Pods_AutoTraderTests.framework */; };
 		FF33A6BA9B9D83604654E6E9 /* Pods_AutoTrader_AutoTraderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F54DAAA3091841B7423ED14 /* Pods_AutoTrader_AutoTraderUITests.framework */; };
 /* End PBXBuildFile section */
@@ -140,6 +145,11 @@
 		45FF09662C07704200AF86BC /* AgentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentViewController.swift; sourceTree = "<group>"; };
 		45FF096B2C07727300AF86BC /* AgentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentData.swift; sourceTree = "<group>"; };
 		45FF096E2C0B0FC100AF86BC /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
+		45FF09702C0C5BA600AF86BC /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		45FF09732C0C5E9A00AF86BC /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		45FF09752C0C695C00AF86BC /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		45FF09782C0DBB1700AF86BC /* WalletRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletRepository.swift; sourceTree = "<group>"; };
+		45FF097A2C0DBD1E00AF86BC /* ActionWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionWalletViewController.swift; sourceTree = "<group>"; };
 		5F54DAAA3091841B7423ED14 /* Pods_AutoTrader_AutoTraderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoTrader_AutoTraderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		650FCB8E55142704284BD7D0 /* Pods_AutoTraderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoTraderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85699AF3739B1F3090AC1186 /* Pods_AutoTrader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoTrader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,6 +203,7 @@
 			children = (
 				457BAE572BF8B4B4001AF323 /* UserRegister.swift */,
 				457BAE592BF8B81B001AF323 /* User.swift */,
+				45FF09752C0C695C00AF86BC /* Login.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -209,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				457BAE642BF8C934001AF323 /* WalletViewController.swift */,
+				45FF097A2C0DBD1E00AF86BC /* ActionWalletViewController.swift */,
 			);
 			path = wallet;
 			sourceTree = "<group>";
@@ -289,6 +301,7 @@
 		45DFD8EF2BDA8DE40032FB62 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				45FF09722C0C5E9000AF86BC /* Wallet */,
 				45FF096D2C0B0FA600AF86BC /* Agent */,
 				45FF091F2C046F8D00AF86BC /* Stock */,
 				457BAE5B2BF8B8BF001AF323 /* Notification */,
@@ -361,6 +374,8 @@
 			isa = PBXGroup;
 			children = (
 				45FF09242C0473C400AF86BC /* StockDataRepository.swift */,
+				45FF09702C0C5BA600AF86BC /* UserRepository.swift */,
+				45FF09782C0DBB1700AF86BC /* WalletRepository.swift */,
 			);
 			name = Repositories;
 			path = "Repositoríe";
@@ -491,6 +506,14 @@
 				45FF096E2C0B0FC100AF86BC /* Agent.swift */,
 			);
 			path = Agent;
+			sourceTree = "<group>";
+		};
+		45FF09722C0C5E9000AF86BC /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				45FF09732C0C5E9A00AF86BC /* Wallet.swift */,
+			);
+			path = Wallet;
 			sourceTree = "<group>";
 		};
 		4F9D2091DB52AA580E68DDB8 /* Pods */ = {
@@ -753,6 +776,8 @@
 			files = (
 				45FF094B2C070DBD00AF86BC /* SLCExtensions.swift in Sources */,
 				45FBB51C2BDC9EC9005C8674 /* Urls.swift in Sources */,
+				45FF097B2C0DBD1E00AF86BC /* ActionWalletViewController.swift in Sources */,
+				45FF09792C0DBB1700AF86BC /* WalletRepository.swift in Sources */,
 				45FF09672C07704200AF86BC /* AgentViewController.swift in Sources */,
 				459896302BFDCDF9006E2447 /* showAlert.swift in Sources */,
 				45FF09212C046F9F00AF86BC /* Stock.swift in Sources */,
@@ -766,13 +791,16 @@
 				45FBB5182BDC9E64005C8674 /* NetworkError.swift in Sources */,
 				45FF092E2C057C3100AF86BC /* String+Extension.swift in Sources */,
 				457BAE6C2BF8FCCC001AF323 /* ChartViewController.swift in Sources */,
+				45FF09742C0C5E9A00AF86BC /* Wallet.swift in Sources */,
 				45FF09522C070DBD00AF86BC /* SLCEmptyState.swift in Sources */,
+				45FF09762C0C695C00AF86BC /* Login.swift in Sources */,
 				45FF09232C0472A200AF86BC /* StockData.swift in Sources */,
 				45212E772BDA902000440C09 /* UserViewController.swift in Sources */,
 				45FF09512C070DBD00AF86BC /* SimpleLineChart.swift in Sources */,
 				45DFD8C02BDA8D690032FB62 /* AppDelegate.swift in Sources */,
 				45212E752BDA900E00440C09 /* PredictViewController.swift in Sources */,
 				457BAE702BFA081A001AF323 /* DetailViewController.swift in Sources */,
+				45FF09712C0C5BA600AF86BC /* UserRepository.swift in Sources */,
 				45FF094C2C070DBD00AF86BC /* SLCChartStyle.swift in Sources */,
 				45FBB5162BDC9E51005C8674 /* APIService.swift in Sources */,
 				4598962E2BFC4437006E2447 /* ChartConfigurator.swift in Sources */,

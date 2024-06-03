@@ -37,8 +37,8 @@ struct DateHelper {
     
     static func convertDate(dateString: String) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-        
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+
         if let date = dateFormatter.date(from: dateString) {
             dateFormatter.dateFormat = "dd-MM-yyyy"
             return dateFormatter.string(from: date)

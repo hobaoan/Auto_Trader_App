@@ -10,6 +10,12 @@ import UIKit
 final class AgentViewController: UIViewController {
     
     @IBOutlet weak var chartView: UIView!
+    @IBOutlet weak var startDay: UILabel!
+    @IBOutlet weak var middleDay: UILabel!
+    @IBOutlet weak var endDay: UILabel!
+    @IBOutlet weak var startPrice: UILabel!
+    @IBOutlet weak var endPrice: UILabel!
+    @IBOutlet weak var middlePrice: UILabel!
     
     var currentDay: String?
     var futureDay: String?
@@ -17,7 +23,6 @@ final class AgentViewController: UIViewController {
     private var agentDatas: [Agent] = []
     
     private let stockRepository: StockDataRepositoryType = StockDataRepository(apiService: .shared)
-    private var lineChart: SimpleLineChart!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +50,7 @@ extension AgentViewController {
                     self.agentDatas = validAgents
                     DispatchQueue.main.async {
                         self.configChart(agents: self.agentDatas)
+                        self.setupLabelChart()
                     }
                 } else {
                     self.showAlert(title: "ERROR", message: "There was a problem with the Bot Trading")
@@ -53,6 +59,40 @@ extension AgentViewController {
                 self.showAlert(title: "ERROR", message: "There was a problem with the Bot Trading")
             }
         }
+    }
+}
+
+extension AgentViewController {
+    private func setupLabelChart() {
+        guard !agentDatas.isEmpty else {
+            return
+        }
+        let firstStockData = agentDatas.first
+        let middleIndex = agentDatas.count / 2
+        let middleStockData = agentDatas[middleIndex]
+        let lastStockData = agentDatas.last
+        
+        let startPriceText = firstStockData?.close.formattedWithSeparator() ?? ""
+        let middlePriceText = middleStockData.close.formattedWithSeparator()
+        let endPriceText = lastStockData?.close.formattedWithSeparator() ?? ""
+        
+        self.startPrice.text = startPriceText
+        self.middlePrice.text = middlePriceText
+        self.endPrice.text = endPriceText
+        
+        guard let firstDay = firstStockData?.date else { return }
+        guard let lastDay = lastStockData?.date else { return }
+        
+        print(firstDay)
+        
+        let startDayText = DateHelper.convertDate(dateString: firstDay)
+        print(startDayText)
+        let middleDayText = DateHelper.convertDate(dateString: middleStockData.date)
+        let endDayText = DateHelper.convertDate(dateString: lastDay)
+        
+        self.startDay.text = startDayText
+        self.middleDay.text = middleDayText
+        self.endDay.text = endDayText
     }
 }
 

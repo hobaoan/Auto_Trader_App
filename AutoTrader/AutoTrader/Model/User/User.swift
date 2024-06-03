@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import ObjectMapper
 
-struct User {
+struct User: Codable {
     var id: Int
     var lastName: String
     var firstName: String
@@ -19,33 +18,18 @@ struct User {
     var gender: String
     var address: String
     var createAt: String
-}
-
-extension User: Mappable {
-    init?(map: Map) {
-        id = 0
-        lastName = ""
-        firstName = ""
-        email = ""
-        phoneNumber = ""
-        dateOfBirth = ""
-        regional = ""
-        gender = ""
-        address = ""
-        createAt = ""
-    }
     
-    mutating func mapping(map: Map) {
-        id <- map["id"]
-        lastName <- map["lastName"]
-        firstName <- map["firstName"]
-        email <- map["email"]
-        phoneNumber <- map["phoneNumber"]
-        dateOfBirth <- map["dateOfBirth"]
-        regional <- map["regional"]
-        gender <- map["gender"]
-        address <- map["address"]
-        createAt <- map["createAt"]
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case lastName = "lastName"
+        case firstName = "firstName"
+        case email = "email"
+        case phoneNumber = "phoneNumber"
+        case dateOfBirth = "dateOfBirth"
+        case regional = "regional"
+        case gender = "gender"
+        case address = "address"
+        case createAt = "createAt"
     }
 }
 
