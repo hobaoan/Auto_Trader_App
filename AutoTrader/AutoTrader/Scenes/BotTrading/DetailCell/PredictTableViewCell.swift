@@ -9,7 +9,7 @@ import UIKit
 import Reusable
 
 final class PredictTableViewCell: UITableViewCell, NibReusable {
-
+    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var anomalyImageView: UIImageView!
@@ -25,8 +25,9 @@ final class PredictTableViewCell: UITableViewCell, NibReusable {
         cellView.clipsToBounds = true
     }
     
-    func setContent(date: String, price: String) {
+    func setContent(date: String, price: String, anomalyImage: UIImage?) {
         dateLabel.text = date
         priceLabel.text = price
+        anomalyImageView.image = anomalyImage
     }
 }

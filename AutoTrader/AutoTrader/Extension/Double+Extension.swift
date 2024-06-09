@@ -8,11 +8,12 @@
 import Foundation
 
 extension Double {
-    func formattedWithSeparator() -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.decimalSeparator = "."
-        formatter.maximumFractionDigits = 2
-        return formatter.string(from: NSNumber(value: self)) ?? String(self)
+    func formattedWithSeparator() -> String? {
+        let integerPart = Int(self)
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.usesGroupingSeparator = true
+        numberFormatter.groupingSeparator = "."
+        return numberFormatter.string(from: NSNumber(value: integerPart))
     }
 }

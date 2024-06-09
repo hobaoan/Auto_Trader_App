@@ -228,7 +228,7 @@ private extension SimpleLineChart {
         let circleDiameter = data.lineStyle.circleDiameter
         UIColor.red.setFill()
         for i in 0..<data.filteredGraphPoints.count {
-            if data.filteredGraphPoints[i].z == 1 {
+            if data.filteredGraphPoints[i].z == -1 {
                 var point = CGPoint(x: columnXPoint(data.filteredGraphPoints[i].x), y: columnYPoint(data.filteredGraphPoints[i].y))
                 point.x -= circleDiameter / 2
                 point.y -= circleDiameter / 1.5

@@ -10,6 +10,7 @@ target 'AutoTrader' do
 	pod 'ObjectMapper', '~> 4.4.2'
 	pod 'DatePicker', '1.3.1'
 	pod 'MaterialActivityIndicator', '0.0.6'
+	pod 'ProgressHUD', '14.1.1'
 
   target 'AutoTraderTests' do
     inherit! :search_paths

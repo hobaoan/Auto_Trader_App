@@ -49,6 +49,7 @@ struct APIService {
                 completion(.success(decodedData))
             } catch {
                 completion(.failure(error))
+                print(error)
             }
         }
         task.resume()

@@ -39,13 +39,13 @@ struct ConfigureChart {
     
     // MARK: setup Chart Anomaly
     static func configureChartAnomaly(in view: UIView,
-                               with data: [AnomalyData],
+                               with data: [Forecast],
                                lineColor: UIColor,
                                sizePoint: CGFloat,
                                lineShadowGradientStart: UIColor,
                                lineShadowGradientEnd: UIColor) {
         let values = data.enumerated().map { index, data in
-            return SLCData(x: index, y: data.close, z: Int(data.anomaly) ?? 0)
+            return SLCData(x: index, y: data.forecast ?? 0.0, z: data.anomaly ?? 0)
         }
         
         let lineChart = SimpleLineChart(frame: view.bounds)

@@ -16,6 +16,7 @@ final class ListViewController: UIViewController {
     private let stockRepository: StockDataRepositoryType = StockDataRepository(apiService: .shared)
     private let indicator = MaterialActivityIndicatorView()
     private var stockDatas: [Stock] = []
+    
     var userID: Int?
     
     override func viewDidLoad() {

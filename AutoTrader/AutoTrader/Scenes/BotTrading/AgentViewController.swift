@@ -17,6 +17,8 @@ final class AgentViewController: UIViewController {
     @IBOutlet weak var endPrice: UILabel!
     @IBOutlet weak var middlePrice: UILabel!
     
+    @IBOutlet weak var strategyButton: UIButton!
+    
     var currentDay: String?
     var futureDay: String?
     var amount: String?
@@ -26,19 +28,20 @@ final class AgentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        postRequest()
+        postRequest(strategy: "normal")
+        setupButton()
     }
 }
 
 extension AgentViewController {
-    private func postRequest() {
+    private func postRequest(strategy: String) {
         let parameters: [String: Any] = [
             "UserId": 11,
             "symbol": "BSI",
             "from_date": "2023-05-21",
             "to_date": "2024-05-21",
             "init_money": 1000000,
-            "strategy": "normal"
+            "strategy": strategy
         ]
         
         stockRepository.postTradeRange(parameters: parameters) { [weak self] (result: Result<[Agent?]?, Error>) in
@@ -55,7 +58,7 @@ extension AgentViewController {
                 } else {
                     self.showAlert(title: "ERROR", message: "There was a problem with the Bot Trading")
                 }
-            case .failure(let error):
+            case .failure(_):
                 self.showAlert(title: "ERROR", message: "There was a problem with the Bot Trading")
             }
         }
@@ -82,11 +85,8 @@ extension AgentViewController {
         
         guard let firstDay = firstStockData?.date else { return }
         guard let lastDay = lastStockData?.date else { return }
-        
-        print(firstDay)
-        
+                
         let startDayText = DateHelper.convertDate(dateString: firstDay)
-        print(startDayText)
         let middleDayText = DateHelper.convertDate(dateString: middleStockData.date)
         let endDayText = DateHelper.convertDate(dateString: lastDay)
         
@@ -95,6 +95,7 @@ extension AgentViewController {
         self.endDay.text = endDayText
     }
 }
+
 
 extension AgentViewController {
     private func configChart(agents: [Agent]) {
@@ -106,5 +107,27 @@ extension AgentViewController {
             lineShadowGradientStart: .blueShadow,
             lineShadowGradientEnd: .greyCustom
         )
+    }
+    
+    private func setupButton() {
+        strategyButton.menu = createMenu()
+        strategyButton.showsMenuAsPrimaryAction = true
+    }
+    
+    private func createMenu() -> UIMenu {
+        let normal = UIAction(title: "Normal") { [weak self] _ in
+            self?.postRequest(strategy: "normal")
+        }
+        
+        let dsa = UIAction(title: "DSA") { [weak self] _ in
+            self?.postRequest(strategy: "dsa")
+        }
+        let lss = UIAction(title: "LSS") { [weak self] _ in
+            self?.postRequest(strategy: "lss")
+        }
+        
+        let menu = UIMenu(children: [normal, dsa, lss])
+        
+        return menu
     }
 }

@@ -24,6 +24,13 @@ final class ChartViewController: UIViewController {
     @IBOutlet weak var middlePrice: UILabel!
     @IBOutlet weak var endPrice: UILabel!
     
+    @IBOutlet weak var NAV: UILabel!
+    @IBOutlet weak var yearToDate: UILabel!
+    @IBOutlet weak var aMonth: UILabel!
+    @IBOutlet weak var aYear: UILabel!
+    @IBOutlet weak var fiveYears: UILabel!
+    
+    
     var symbol: String?
     private var stockDatas: [StockData] = []
     private let stockRepository: StockDataRepositoryType = StockDataRepository(apiService: .shared)
@@ -69,6 +76,7 @@ extension ChartViewController {
             switch result {
             case .success(let stock):
                 self.stockDatas = stock.stockDatas
+                fetchStockInfo(id: stock.id)
                 DispatchQueue.main.async {
                     self.configChart(stockDatas: self.stockDatas)
                     self.setupLabelChart()
@@ -117,6 +125,21 @@ extension ChartViewController {
         }
     }
     
+    private func fetchStockInfo(id: Int) {
+        stockRepository.getStockInfo (id: id) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let stockInfo):
+                DispatchQueue.main.async {
+                    self.setUpUI(stockInfo: stockInfo)
+                }
+            case .failure(_):
+                self.showAlert(title: "ERROR", message: "No data response")
+            }
+        }
+    }
+
+    
     private func setupLabelChart() {
         guard !stockDatas.isEmpty else {
             return
@@ -138,9 +161,9 @@ extension ChartViewController {
         guard let firstDay = firstStockData?.date else { return }
         guard let lastDay = lastStockData?.date else { return }
         
-        let startDayText = DateHelper.convertDate(dateString: firstDay)
-        let middleDayText = DateHelper.convertDate(dateString: middleStockData.date)
-        let endDayText = DateHelper.convertDate(dateString: lastDay)
+        let startDayText = DateHelper.convertDateOrther(dateString: firstDay)
+        let middleDayText = DateHelper.convertDateOrther(dateString: middleStockData.date)
+        let endDayText = DateHelper.convertDateOrther(dateString: lastDay)
         
         self.startDay.text = startDayText
         self.middleDay.text = middleDayText
@@ -159,6 +182,7 @@ extension ChartViewController {
         if segue.identifier == "toPredictionView" {
             if let predictViewController = segue.destination as? PredictViewController {
                 predictViewController.stockDatas = self.stockDatas
+                predictViewController.sympol = self.symbol
             }
         }
     }
@@ -212,5 +236,14 @@ extension ChartViewController {
     private func configureCornerButton(button: UIButton) {
         button.layer.cornerRadius = 5
         button.clipsToBounds = true
+    }
+    
+    private func setUpUI(stockInfo: StockInfo) {
+        guard let navValue = stockInfo.lastDayPrice.formattedWithSeparator() else { return }
+        NAV.text = "\(navValue) VND"
+        yearToDate.text = "\(Int(stockInfo.profitPercentYearToDate)) %"
+        aMonth.text = "\(Int(stockInfo.profitPercent30Days)) %"
+        aYear.text = "\(Int(stockInfo.profitPercentLastYear)) %"
+        fiveYears.text = "\(Int(stockInfo.profitPercent5YearsAgo)) %"
     }
 }
