@@ -144,4 +144,35 @@ struct APIService {
         }
         task.resume()
     }
+    
+    func deleteData(urlString: String, token: String? = nil, completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let url = URL(string: urlString) else {
+            completion(.failure(NetworkError.invalidURL))
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        if let token = token {
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
+        
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                completion(.failure(NetworkError.invalidResponse))
+                return
+            }
+            
+            completion(.success(()))
+        }
+        task.resume()
+    }
 }

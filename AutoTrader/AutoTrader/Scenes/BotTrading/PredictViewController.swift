@@ -86,7 +86,6 @@ extension PredictViewController {
 
 extension PredictViewController {
     func fetchForecastData(nameML: String) {
-//        self.simulateProgress()
         progressAnimate.simulateProgress {}
         guard let sympol = sympol else {
             return
@@ -135,7 +134,6 @@ extension PredictViewController {
     }
 }
 
-
 extension PredictViewController {
     @IBAction func detailButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "toDetailView", sender: self)
@@ -144,6 +142,7 @@ extension PredictViewController {
     @IBAction func botButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let botViewController = storyboard.instantiateViewController(withIdentifier: "BotViewController") as? BotViewController {
+            botViewController.delegate = self
             if let sheet = botViewController.sheetPresentationController {
                 sheet.detents = [.medium()]
             }
@@ -158,6 +157,8 @@ extension PredictViewController {
             }
         } else if segue.identifier == "toBotView" {
             // Pass data to BotViewController if needed
+        } else if segue.identifier == "pushAgentView" {
+            
         }
     }
 }
@@ -261,5 +262,11 @@ extension PredictViewController {
         let menu = UIMenu(children: [lstm, gan])
         
         return menu
+    }
+}
+
+extension PredictViewController: BotViewControllerDelegate {
+    func botViewControllerDidDismiss(currentDay: String, futureDay: String, amount: String) {
+        performSegue(withIdentifier: "pushAgentView", sender: self)
     }
 }

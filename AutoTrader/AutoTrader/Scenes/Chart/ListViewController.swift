@@ -16,11 +16,13 @@ final class ListViewController: UIViewController {
     private let stockRepository: StockDataRepositoryType = StockDataRepository(apiService: .shared)
     private let indicator = MaterialActivityIndicatorView()
     private var stockDatas: [Stock] = []
+    let notificationManager = NotificationManager.shared
     
     var userID: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        notificationManager.requestAuthorization()
         view.setupIndicator(indicator)
         configTableView()
         fetchStockData()

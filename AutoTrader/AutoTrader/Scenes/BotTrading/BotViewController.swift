@@ -8,7 +8,13 @@
 import UIKit
 import DatePicker
 
+protocol BotViewControllerDelegate: AnyObject {
+    func botViewControllerDidDismiss(currentDay: String, futureDay: String, amount: String)
+}
+
 final class BotViewController: UIViewController {
+    
+    weak var delegate: BotViewControllerDelegate?
     
     private let datePicker = DatePicker()
     private let today = Date()
@@ -99,16 +105,11 @@ extension BotViewController {
 extension BotViewController {
     @IBAction func investButtonTapped(_ sender: Any) {
         if checkInput() {
-            performSegue(withIdentifier: "toAgentView", sender: self)
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toAgentView" {
-            if let agentViewController = segue.destination as? AgentViewController {
-                agentViewController.currentDay = self.currentDay
-                agentViewController.futureDay = self.futureDay
-                agentViewController.amount = self.amountTextField.text ?? "0"
+            let amountText = amountTextField.text ?? "0"
+            dismiss(animated: true) {
+                self.delegate?.botViewControllerDidDismiss(currentDay: self.currentDay,
+                                                           futureDay: self.futureDay,
+                                                           amount: amountText)
             }
         }
     }

@@ -1,19 +1,18 @@
 //
-//  UserViewController.swift
+//  ForgotPasswordViewController.swift
 //  AutoTrader
 //
-//  Created by An Bảo on 25/04/2024.
+//  Created by An Bảo on 26/06/2024.
 //
 
 import UIKit
 
-final class UserViewController: UIViewController {
+class ForgotPasswordViewController: UIViewController {
 
-    var userID: Int?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(userID)
+
+        // Do any additional setup after loading the view.
     }
     
 

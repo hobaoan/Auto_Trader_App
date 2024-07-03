@@ -9,7 +9,6 @@ import UIKit
 import MaterialActivityIndicator
 
 final class WalletViewController: UIViewController {
-
     @IBOutlet weak var viewSum: UIView!
     @IBOutlet weak var viewProfit: UIView!
     @IBOutlet weak var viewSur: UIView!
@@ -22,24 +21,35 @@ final class WalletViewController: UIViewController {
     
     private let indicator = MaterialActivityIndicatorView()
     private let walletRepository: WalletRepositoryType = WalletRepository(apiService: .shared)
-
+    private let stockRepository: StockDataRepositoryType = StockDataRepository(apiService: .shared)
+    let notificationManager = NotificationManager.shared
+    
+    @IBOutlet weak var collectionView: UICollectionView!
     var userID: Int?
-    var walletID = 0
+    var walletID: Int?
+    var listStockHold: [StockHold] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         fetchWalletData()
+        fetchListStockHold()
+        configCollectionView()
         NotificationCenter.default.addObserver(self, selector: #selector(walletDataDidUpdate), name: .walletDataDidUpdate, object: nil)
-
     }
     
     @objc private func walletDataDidUpdate() {
         fetchWalletData()
+        getListNoti()
     }
-
+    
     deinit {
         NotificationCenter.default.removeObserver(self, name: .walletDataDidUpdate, object: nil)
+    }
+    
+    private func configCollectionView() {
+        collectionView.dataSource = self
+        collectionView.register(cellType: StockHoldCollectionViewCell.self)
     }
 }
 
@@ -59,11 +69,65 @@ extension WalletViewController {
                     }
                 }
             case .failure(_):
-                self.showAlert(title: "ERROR", message: "No data response")
+                DispatchQueue.main.async {
+                    self.showAlert(title: "ERROR", message: "No data response")
+                }
+            }
+        }
+    }
+    
+    private func getListNoti() {
+        guard let userID = userID else { return }
+        walletRepository.getListNoti(userId: userID) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let listNoti):
+                DispatchQueue.main.async {
+                    if let firstNotification = listNoti.first {
+                        self.notificationManager.scheduleNotification(title: firstNotification.title,
+                                                                      contentNoti: firstNotification.descriptionNoti)
+                    }
+                }
+            case .failure(_):
+                DispatchQueue.main.async {
+                    self.showAlert(title: "ERROR", message: "No data response")
+                }
+            }
+        }
+    }
+    
+    private func fetchListStockHold() {
+        guard let userID = userID else { return }
+        stockRepository.getStockHold(usedID: userID) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let listStockHold):
+                DispatchQueue.main.async {
+                    self.listStockHold = listStockHold
+                    self.collectionView.reloadData()
+                }
+            case .failure(_):
+                DispatchQueue.main.async {
+                    self.showAlert(title: "ERROR", message: "No data response")
+                }
             }
         }
     }
 }
+
+extension WalletViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return listStockHold.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: StockHoldCollectionViewCell.self)
+        let stockHold = listStockHold[indexPath.row]
+        cell.setContent(stockHold: stockHold)
+        return cell
+    }
+}
+
 
 // MARK: - Handle button
 
@@ -97,6 +161,8 @@ extension WalletViewController {
     }
 }
 
+
+
 // MARK: - setup UI
 
 extension WalletViewController {
@@ -123,4 +189,30 @@ extension WalletViewController {
 
 extension Foundation.Notification.Name {
     static let walletDataDidUpdate = Foundation.Notification.Name("walletDataDidUpdate")
+}
+
+extension WalletViewController {
+    @IBAction func listNotiButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "toListNotiView", sender: nil)
+    }
+    
+    @IBAction func historyButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "toHistoryView", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toListNotiView" {
+            if let listNotiViewController = segue.destination as? ListNotiViewController {
+                guard let userID = userID else { return }
+                listNotiViewController.userID = userID
+            }
+        }
+        
+        if segue.identifier == "toHistoryView" {
+            if let historyViewController = segue.destination as? HistoryViewController {
+                guard let walletID = walletID else { return }
+                historyViewController.walletID = walletID
+            }
+        }
+    }
 }

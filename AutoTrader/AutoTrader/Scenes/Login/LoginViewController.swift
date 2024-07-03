@@ -112,7 +112,8 @@ extension LoginViewController {
                 for viewController in viewControllers {
                     if let listViewController = viewController as? ListViewController {
                         listViewController.userID = self.userID
-                    } else if let walletViewController = viewController as? WalletViewController {
+                    } else if let walletNavController = viewController as? UINavigationController,
+                              let walletViewController = walletNavController.topViewController as? WalletViewController {
                         walletViewController.userID = self.userID
                     } else if let userViewController = viewController as? UserViewController {
                         userViewController.userID = self.userID

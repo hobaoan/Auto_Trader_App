@@ -14,10 +14,10 @@ protocol StockDataRepositoryType {
     func postTradeRange(parameters: [String: Any], completion: @escaping(Result<[Agent?]?, Error>) -> Void)
     func getForecastData(nameML: String, sympol: String, completion: @escaping(Result<[Forecast], Error>) -> Void)
     func getStockInfo(id: Int, completion: @escaping(Result<StockInfo, Error>) -> Void)
+    func getStockHold(usedID: Int, completion: @escaping(Result<[StockHold], Error>) -> Void)
 }
 
 struct StockDataRepository: StockDataRepositoryType {
-
     private let apiService: APIService
     
     init(apiService: APIService) {
@@ -51,6 +51,11 @@ struct StockDataRepository: StockDataRepositoryType {
     
     func getStockInfo(id: Int, completion: @escaping (Result<StockInfo, any Error>) -> Void) {
         let urlString = "https://app-trading-stock.azurewebsites.net/StockInfor/stockInforId?stockinforId=\(id)"
+        apiService.fetchData(urlString: urlString, completion: completion)
+    }
+    
+    func getStockHold(usedID: Int, completion: @escaping (Result<[StockHold], any Error>) -> Void) {
+        let urlString = "https://app-trading-stock.azurewebsites.net/StockHold/UserId?userId=\(usedID)"
         apiService.fetchData(urlString: urlString, completion: completion)
     }
 }
