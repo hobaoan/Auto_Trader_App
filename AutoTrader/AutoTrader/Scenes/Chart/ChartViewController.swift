@@ -178,12 +178,20 @@ extension ChartViewController {
         performSegue(withIdentifier: "toPredictionView", sender: nil)
     }
     
+    @IBAction func investButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "toActionView", sender: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toPredictionView" {
             if let predictViewController = segue.destination as? PredictViewController {
                 predictViewController.stockDatas = self.stockDatas
                 predictViewController.sympol = self.symbol
             }
+        }
+        
+        if segue.identifier == "toActionView" {
+           
         }
     }
 }

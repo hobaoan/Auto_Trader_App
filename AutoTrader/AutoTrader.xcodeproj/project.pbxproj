@@ -22,6 +22,15 @@
 		4557CE6F2C2C4B2300603572 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557CE6E2C2C4B2300603572 /* ForgotPasswordViewController.swift */; };
 		4557CE722C2C548500603572 /* AgentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557CE702C2C548500603572 /* AgentTableViewCell.swift */; };
 		4557CE732C2C548500603572 /* AgentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4557CE712C2C548500603572 /* AgentTableViewCell.xib */; };
+		4557CE7A2C35911B00603572 /* ActionTradingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557CE792C35911B00603572 /* ActionTradingViewController.swift */; };
+		4557CE7C2C35912900603572 /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557CE7B2C35912900603572 /* BuyViewController.swift */; };
+		4557CE7E2C35913600603572 /* SellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557CE7D2C35913600603572 /* SellViewController.swift */; };
+		4557CE802C35949A00603572 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557CE7F2C35949A00603572 /* CustomSegmentedControl.swift */; };
+		4557CE842C359D3900603572 /* StockSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557CE832C359D3900603572 /* StockSearchViewController.swift */; };
+		4557CE862C35ADE300603572 /* StockSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557CE852C35ADE300603572 /* StockSearch.swift */; };
+		4557CE8B2C3650B400603572 /* SympolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557CE8A2C3650B400603572 /* SympolCell.swift */; };
+		4557CE8D2C36581A00603572 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557CE8C2C36581A00603572 /* UIViewController+Extension.swift */; };
+		4557CE8F2C36803D00603572 /* SympolSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557CE8E2C36803C00603572 /* SympolSearch.swift */; };
 		4560F72B2C160F2300658F7A /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560F7292C160F2300658F7A /* HistoryTableViewCell.swift */; };
 		4560F72C2C160F2300658F7A /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4560F72A2C160F2300658F7A /* HistoryTableViewCell.xib */; };
 		456EB9012BF0C7030018D38B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 456EB9002BF0C7030018D38B /* Colors.xcassets */; };
@@ -121,6 +130,15 @@
 		4557CE6E2C2C4B2300603572 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		4557CE702C2C548500603572 /* AgentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentTableViewCell.swift; sourceTree = "<group>"; };
 		4557CE712C2C548500603572 /* AgentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgentTableViewCell.xib; sourceTree = "<group>"; };
+		4557CE792C35911B00603572 /* ActionTradingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTradingViewController.swift; sourceTree = "<group>"; };
+		4557CE7B2C35912900603572 /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
+		4557CE7D2C35913600603572 /* SellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellViewController.swift; sourceTree = "<group>"; };
+		4557CE7F2C35949A00603572 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
+		4557CE832C359D3900603572 /* StockSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchViewController.swift; sourceTree = "<group>"; };
+		4557CE852C35ADE300603572 /* StockSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearch.swift; sourceTree = "<group>"; };
+		4557CE8A2C3650B400603572 /* SympolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SympolCell.swift; sourceTree = "<group>"; };
+		4557CE8C2C36581A00603572 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		4557CE8E2C36803C00603572 /* SympolSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SympolSearch.swift; sourceTree = "<group>"; };
 		4560F7292C160F2300658F7A /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		4560F72A2C160F2300658F7A /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
 		456EB9002BF0C7030018D38B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -235,6 +253,26 @@
 				45FF0BA82C170B7F009F39DA /* StockHoldCollectionViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		4557CE782C35909A00603572 /* ActionTrading */ = {
+			isa = PBXGroup;
+			children = (
+				4557CE872C35B08900603572 /* Search */,
+				4557CE792C35911B00603572 /* ActionTradingViewController.swift */,
+				4557CE7B2C35912900603572 /* BuyViewController.swift */,
+				4557CE7D2C35913600603572 /* SellViewController.swift */,
+			);
+			path = ActionTrading;
+			sourceTree = "<group>";
+		};
+		4557CE872C35B08900603572 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				4557CE832C359D3900603572 /* StockSearchViewController.swift */,
+				4557CE8A2C3650B400603572 /* SympolCell.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		456EB8FD2BF0990F0018D38B /* Frameworks */ = {
@@ -370,6 +408,7 @@
 				45DFD8F82BDA8E6D0032FB62 /* Login */,
 				45DFD8F92BDA8E720032FB62 /* Chart */,
 				45DFD8FA2BDA8E7C0032FB62 /* BotTrading */,
+				4557CE782C35909A00603572 /* ActionTrading */,
 				457BAE622BF8C8FB001AF323 /* wallet */,
 				45DFD8FB2BDA8E840032FB62 /* User */,
 				45DFD8C52BDA8D690032FB62 /* Main.storyboard */,
@@ -445,6 +484,7 @@
 				45FF092F2C05837500AF86BC /* DateHelper.swift */,
 				45371E472C1584AC00685B4F /* ProcessAnimate.swift */,
 				45371E4B2C15937400685B4F /* NotificationManager.swift */,
+				4557CE7F2C35949A00603572 /* CustomSegmentedControl.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -497,6 +537,8 @@
 				45371E422C109A3D00685B4F /* Forecast.swift */,
 				45371E452C10AFC700685B4F /* StockInfo.swift */,
 				45FF0BA52C170852009F39DA /* StockHold.swift */,
+				4557CE852C35ADE300603572 /* StockSearch.swift */,
+				4557CE8E2C36803C00603572 /* SympolSearch.swift */,
 			);
 			path = Stock;
 			sourceTree = "<group>";
@@ -507,6 +549,7 @@
 				45FF09282C04CF9500AF86BC /* Double+Extension.swift */,
 				45FF092D2C057C3100AF86BC /* String+Extension.swift */,
 				45FF09372C06CD2600AF86BC /* UIView+Extension.swift */,
+				4557CE8C2C36581A00603572 /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -841,6 +884,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45FF094B2C070DBD00AF86BC /* SLCExtensions.swift in Sources */,
+				4557CE7E2C35913600603572 /* SellViewController.swift in Sources */,
 				45FBB51C2BDC9EC9005C8674 /* Urls.swift in Sources */,
 				4560F72B2C160F2300658F7A /* HistoryTableViewCell.swift in Sources */,
 				45FF097B2C0DBD1E00AF86BC /* ActionWalletViewController.swift in Sources */,
@@ -861,22 +905,29 @@
 				45FBB5182BDC9E64005C8674 /* NetworkError.swift in Sources */,
 				45FF092E2C057C3100AF86BC /* String+Extension.swift in Sources */,
 				457BAE6C2BF8FCCC001AF323 /* ChartViewController.swift in Sources */,
+				4557CE862C35ADE300603572 /* StockSearch.swift in Sources */,
 				45FF09742C0C5E9A00AF86BC /* Wallet.swift in Sources */,
+				4557CE7A2C35911B00603572 /* ActionTradingViewController.swift in Sources */,
 				45371E482C1584AC00685B4F /* ProcessAnimate.swift in Sources */,
 				45371E532C159AFF00685B4F /* NotificationTableViewCell.swift in Sources */,
 				45FF09522C070DBD00AF86BC /* SLCEmptyState.swift in Sources */,
 				45FF09762C0C695C00AF86BC /* Login.swift in Sources */,
+				4557CE8B2C3650B400603572 /* SympolCell.swift in Sources */,
 				45FF09232C0472A200AF86BC /* StockData.swift in Sources */,
+				4557CE802C35949A00603572 /* CustomSegmentedControl.swift in Sources */,
+				4557CE8D2C36581A00603572 /* UIViewController+Extension.swift in Sources */,
 				45212E772BDA902000440C09 /* UserViewController.swift in Sources */,
 				45FF09512C070DBD00AF86BC /* SimpleLineChart.swift in Sources */,
 				45DFD8C02BDA8D690032FB62 /* AppDelegate.swift in Sources */,
 				45371E4A2C158BE300685B4F /* History.swift in Sources */,
 				45212E752BDA900E00440C09 /* PredictViewController.swift in Sources */,
+				4557CE7C2C35912900603572 /* BuyViewController.swift in Sources */,
 				45FF0BA62C170852009F39DA /* StockHold.swift in Sources */,
 				45371E462C10AFC700685B4F /* StockInfo.swift in Sources */,
 				457BAE702BFA081A001AF323 /* DetailViewController.swift in Sources */,
 				4557CE722C2C548500603572 /* AgentTableViewCell.swift in Sources */,
 				45371E4C2C15937400685B4F /* NotificationManager.swift in Sources */,
+				4557CE842C359D3900603572 /* StockSearchViewController.swift in Sources */,
 				45FF09712C0C5BA600AF86BC /* UserRepository.swift in Sources */,
 				45FF094C2C070DBD00AF86BC /* SLCChartStyle.swift in Sources */,
 				45FBB5162BDC9E51005C8674 /* APIService.swift in Sources */,
@@ -888,6 +939,7 @@
 				4598962C2BFB4DDC006E2447 /* PredictTableViewCell.swift in Sources */,
 				45FF0BA92C170B7F009F39DA /* StockHoldCollectionViewCell.swift in Sources */,
 				45FF092C2C04D85100AF86BC /* ConfigureChart.swift in Sources */,
+				4557CE8F2C36803D00603572 /* SympolSearch.swift in Sources */,
 				457BAE6E2BF9A059001AF323 /* StockDataTest.swift in Sources */,
 				45FF09252C0473C400AF86BC /* StockDataRepository.swift in Sources */,
 				457BAE5A2BF8B81B001AF323 /* User.swift in Sources */,
