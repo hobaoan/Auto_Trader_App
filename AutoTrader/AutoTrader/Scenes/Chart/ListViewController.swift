@@ -81,6 +81,7 @@ extension ListViewController: UITableViewDelegate {
         if segue.identifier == "toChartView" {
             if let chartViewController = segue.destination as? ChartViewController,
                let indexPath = tableView.indexPathForSelectedRow {
+                chartViewController.userID = self.userID
                 let selectedStock = stockDatas[indexPath.row]
                 chartViewController.symbol = selectedStock.symbol
             }

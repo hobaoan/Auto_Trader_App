@@ -32,6 +32,7 @@ final class ChartViewController: UIViewController {
     
     
     var symbol: String?
+    var userID: Int?
     private var stockDatas: [StockData] = []
     private let stockRepository: StockDataRepositoryType = StockDataRepository(apiService: .shared)
     private let today = DateHelper.getCurrentDate()
@@ -191,7 +192,9 @@ extension ChartViewController {
         }
         
         if segue.identifier == "toActionView" {
-           
+            if let actionTradingViewController = segue.destination as? ActionTradingViewController {
+                actionTradingViewController.userID = self.userID
+            }
         }
     }
 }

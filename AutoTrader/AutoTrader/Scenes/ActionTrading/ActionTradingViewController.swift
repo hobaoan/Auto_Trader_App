@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol UserIdentifiable {
+    var userID: Int? { get set }
+}
+
 final class ActionTradingViewController: UIViewController, CustomSegmentedControlDelegate {
     
     @IBOutlet weak var customSegmentedControl: CustomSegmentedControl! {
@@ -19,6 +23,7 @@ final class ActionTradingViewController: UIViewController, CustomSegmentedContro
     
     @IBOutlet weak var containerView: UIView!
     private var currentViewController: UIViewController?
+    var userID: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,16 +45,21 @@ extension ActionTradingViewController {
     }
     
     private func showViewController(withIdentifier identifier: String) {
-           guard let viewController = storyboard?.instantiateViewController(withIdentifier: identifier) else {
-               return
-           }
-           currentViewController?.removeFromParent()
-           currentViewController?.view.removeFromSuperview()
-           addChild(viewController)
-           containerView.addSubview(viewController.view)
-           viewController.view.frame = containerView.bounds
-           viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-           viewController.didMove(toParent: self)
-           currentViewController = viewController
-       }
+        guard let viewController = storyboard?.instantiateViewController(withIdentifier: identifier) else {
+            return
+        }
+        
+        if var userIdentifiableVC = viewController as? UserIdentifiable {
+            userIdentifiableVC.userID = userID
+        }
+        
+        currentViewController?.removeFromParent()
+        currentViewController?.view.removeFromSuperview()
+        addChild(viewController)
+        containerView.addSubview(viewController.view)
+        viewController.view.frame = containerView.bounds
+        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        viewController.didMove(toParent: self)
+        currentViewController = viewController
+    }
 }

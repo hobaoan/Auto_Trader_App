@@ -34,4 +34,8 @@ final class StockHoldCollectionViewCell: UICollectionViewCell, NibReusable {
         capitalLabel.text = stockHold.totalcapital.formattedWithSeparator()
         percentLabel.text = "\(Int(stockHold.percent)) %"
     }
+    
+    func setColorSelected(color: UIColor) {
+        cellView.backgroundColor = color
+    }
 }
