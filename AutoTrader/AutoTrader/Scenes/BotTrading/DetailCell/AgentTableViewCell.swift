@@ -13,6 +13,7 @@ final class AgentTableViewCell: UITableViewCell, NibReusable {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var signalLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,10 +25,11 @@ final class AgentTableViewCell: UITableViewCell, NibReusable {
         cellView.clipsToBounds = true
     }
     
-    func setContent(date: String, price: String, signal: String, color: UIColor) {
+    func setContent(date: String, price: String, signal: String, color: UIColor, status: String) {
         dateLabel.text = date
         priceLabel.text = price
         signalLabel.text = signal
         signalLabel.textColor = color
+        statusLabel.text = status
     }
 }

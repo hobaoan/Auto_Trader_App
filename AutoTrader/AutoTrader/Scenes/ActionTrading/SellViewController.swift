@@ -19,14 +19,17 @@ final class SellViewController: UIViewController, UserIdentifiable {
     @IBOutlet weak var marketPriceTextField: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    
     private var searchController = UISearchController()
     private var stockSearchViewController = StockSearchViewController()
     private let stockRepository: StockDataRepositoryType = StockDataRepository(apiService: .shared)
+    let notificationManager = NotificationManager.shared
     var userID: Int?
     var listStockHold: [StockHold] = []
-    private var selectedIndexPath: IndexPath? // Add this property
-    
+    private var selectedIndexPath: IndexPath?
+    var blurEffectView: UIVisualEffectView?
+    var stockData: StockSearch?
+    var stockId: Int?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -104,6 +107,8 @@ extension SellViewController {
 extension SellViewController: StockSearchViewControllerDelegate {
     func stockSearchViewController(_ controller: StockSearchViewController, didSelectSymbol symbol: SympolSearch) {
         fetchDataStockBuy(id: symbol.id)
+        self.stockId = symbol.id
+        searchBar.text = symbol.name
     }
     
     private func fetchDataStockBuy(id: Int) {
@@ -112,6 +117,7 @@ extension SellViewController: StockSearchViewControllerDelegate {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let result):
+                    self.stockData = result
                     if let todayPriceString = result.todayPrice.formattedWithSeparator() {
                         self.lastPriceLabel.text = "\(todayPriceString) VND"
                         self.marketPriceTextField.text = "\(todayPriceString) VND"
@@ -123,12 +129,49 @@ extension SellViewController: StockSearchViewControllerDelegate {
             }
         }
     }
+    
+    private func orderStockPost(stockData: StockSearch) {
+        guard let userID = userID else { return }
+        guard let stockId = stockId else { return }
+
+        let parameters: [String: Any] = [
+            "symbol": stockData.symbol,
+              "type": "Sell",
+              "quantity": quantityTextField.text ?? "0",
+              "price": stockData.todayPrice,
+              "triggerPrice": stockData.todayPrice,
+              "userId": userID,
+              "stockInforId": stockId
+        ]
+        
+        stockRepository.orderStock(parameters: parameters) { [weak self] result in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    self.notificationManager.scheduleNotification(title: "Sell success",
+                                                                  contentNoti: "\(stockData.symbol) - Quantity: \(self.quantityTextField.text ?? "0") - Price: \(stockData.todayPrice) VND")
+                    self.fetchListStockHold()
+                case .failure(_):
+                    self.showAlert(title: "ERROR", message: "Your \(stockData.symbol) stock quantity not enough to sell")
+                }
+            }
+        }
+    }
 }
 
 extension SellViewController {
     @IBAction func clearButtonTapped(_ sender: Any) {
+        quantityTextField.text = ""
     }
     @IBAction func reviewButtonTapped(_ sender: Any) {
+        if quantityTextField.text?.isEmpty == true
+            || marketPriceTextField.text?.isEmpty == true
+            || lastPriceLabel.text?.isEmpty == true {
+                self.showAlert(title: "ERROR", message: "Input cannot be empty!")
+        } else {
+            showPopup()
+        }
     }
 }
 
@@ -155,6 +198,8 @@ extension SellViewController: UICollectionViewDelegate {
         
         let selectedStockHold = listStockHold[indexPath.row]
         fetchDataStockBuy(id: selectedStockHold.stockId)
+        self.stockId = selectedStockHold.stockId
+        searchBar.text = selectedStockHold.stockSymbol
         
         if let currentCell = collectionView.cellForItem(at: indexPath) as? StockHoldCollectionViewCell {
             currentCell.setColorSelected(color: .darkGray)
@@ -162,3 +207,31 @@ extension SellViewController: UICollectionViewDelegate {
         selectedIndexPath = indexPath
     }
 }
+
+extension SellViewController: PopupViewControllerDelegate {
+    private func showPopup() {
+        let blurEffect = UIBlurEffect(style: .dark)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView?.frame = view.bounds
+        blurEffectView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(blurEffectView!)
+        let popupVC = PopupViewController(nibName: "PopupViewController", bundle: nil)
+        popupVC.delegate = self
+        popupVC.modalPresentationStyle = .overCurrentContext
+        popupVC.modalTransitionStyle = .crossDissolve
+        let price = stockData?.todayPrice.formattedWithSeparator() ?? "N/A"
+        present(popupVC, animated: true, completion: nil)
+        popupVC.setContent(sympol: stockData?.symbol ?? "N/A",
+                           price: "\(price) VND",
+                           quantity: quantityTextField.text ?? "N/A",
+                           status: "Sell")
+    }
+    
+    func popupViewControllerDidDismiss() {
+        blurEffectView?.removeFromSuperview()
+        guard let stockData = stockData else { return }
+        orderStockPost(stockData: stockData)
+    }
+}
+
+

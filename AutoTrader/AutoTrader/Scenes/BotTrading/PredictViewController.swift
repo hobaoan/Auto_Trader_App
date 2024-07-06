@@ -34,6 +34,11 @@ final class PredictViewController: UIViewController {
     
     var stockDatas: [StockData]?
     var sympol: String?
+    var userId: Int?
+    var currentDay = ""
+    var futureDay = ""
+    var amount = ""
+    var model = ""
     
     private let stockRepository: StockDataRepositoryType = StockDataRepository(apiService: .shared)
     private var stockDatasNew: [StockData] = []
@@ -91,7 +96,7 @@ extension PredictViewController {
             return
         }
         
-        let urlString = "https://rl.ftisu.vn/\(nameML)Predict?Symbol=\(sympol)"
+        let urlString = "https://rl.ftisu.vn/LSTMPredict?Symbol=\(sympol)&Model=\(nameML)"
         guard let url = URL(string: urlString) else { return }
         
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
@@ -144,7 +149,9 @@ extension PredictViewController {
         if let botViewController = storyboard.instantiateViewController(withIdentifier: "BotViewController") as? BotViewController {
             botViewController.delegate = self
             if let sheet = botViewController.sheetPresentationController {
-                sheet.detents = [.medium()]
+                let customHeight: CGFloat = 600
+                let customDetent = UISheetPresentationController.Detent.custom(resolver: { _ in customHeight })
+                sheet.detents = [customDetent]
             }
             present(botViewController, animated: true, completion: nil)
         }
@@ -158,7 +165,14 @@ extension PredictViewController {
         } else if segue.identifier == "toBotView" {
             // Pass data to BotViewController if needed
         } else if segue.identifier == "pushAgentView" {
-            
+            if let agentViewController = segue.destination as? AgentViewController {
+                agentViewController.currentDay = self.currentDay
+                agentViewController.futureDay = self.futureDay
+                agentViewController.amount = self.amount
+                agentViewController.model = self.model
+                agentViewController.sympol = self.sympol
+                agentViewController.userID = self.userId
+            }
         }
     }
 }
@@ -252,21 +266,33 @@ extension PredictViewController {
             }
         }
         
-        let gan = UIAction(title: "GAN") { [weak self] _ in
+        let gru = UIAction(title: "GRU") { [weak self] _ in
             DispatchQueue.main.async {
-                self?.algorithmButton.setTitle("GAN", for: .normal)
-                self?.fetchForecastData(nameML: "GAN")
+                self?.algorithmButton.setTitle("GRU", for: .normal)
+                self?.fetchForecastData(nameML: "GRU")
             }
         }
         
-        let menu = UIMenu(children: [lstm, gan])
+        let attention = UIAction(title: "Attention") { [weak self] _ in
+            DispatchQueue.main.async {
+                self?.algorithmButton.setTitle("Attention", for: .normal)
+                self?.fetchForecastData(nameML: "Attention")
+            }
+        }
+        
+        let menu = UIMenu(children: [lstm, gru, attention])
         
         return menu
     }
 }
 
 extension PredictViewController: BotViewControllerDelegate {
-    func botViewControllerDidDismiss(currentDay: String, futureDay: String, amount: String) {
+    func botViewControllerDidDismiss(currentDay: String, futureDay: String, amount: String, model: String) {
+        self.currentDay = currentDay
+        self.futureDay = futureDay
+        self.amount = amount
+        self.model = model
+        
         performSegue(withIdentifier: "pushAgentView", sender: self)
     }
 }

@@ -31,6 +31,9 @@
 		4557CE8B2C3650B400603572 /* SympolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557CE8A2C3650B400603572 /* SympolCell.swift */; };
 		4557CE8D2C36581A00603572 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557CE8C2C36581A00603572 /* UIViewController+Extension.swift */; };
 		4557CE8F2C36803D00603572 /* SympolSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557CE8E2C36803C00603572 /* SympolSearch.swift */; };
+		4557CE972C38422300603572 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557CE952C38422300603572 /* PopupViewController.swift */; };
+		4557CE982C38422300603572 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4557CE962C38422300603572 /* PopupViewController.xib */; };
+		4557CE9B2C384A6100603572 /* PopupPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557CE9A2C384A6100603572 /* PopupPresentationController.swift */; };
 		4560F72B2C160F2300658F7A /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560F7292C160F2300658F7A /* HistoryTableViewCell.swift */; };
 		4560F72C2C160F2300658F7A /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4560F72A2C160F2300658F7A /* HistoryTableViewCell.xib */; };
 		456EB9012BF0C7030018D38B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 456EB9002BF0C7030018D38B /* Colors.xcassets */; };
@@ -139,6 +142,9 @@
 		4557CE8A2C3650B400603572 /* SympolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SympolCell.swift; sourceTree = "<group>"; };
 		4557CE8C2C36581A00603572 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		4557CE8E2C36803C00603572 /* SympolSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SympolSearch.swift; sourceTree = "<group>"; };
+		4557CE952C38422300603572 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		4557CE962C38422300603572 /* PopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
+		4557CE9A2C384A6100603572 /* PopupPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPresentationController.swift; sourceTree = "<group>"; };
 		4560F7292C160F2300658F7A /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		4560F72A2C160F2300658F7A /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
 		456EB9002BF0C7030018D38B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -258,6 +264,7 @@
 		4557CE782C35909A00603572 /* ActionTrading */ = {
 			isa = PBXGroup;
 			children = (
+				4557CE992C38422C00603572 /* Popup */,
 				4557CE872C35B08900603572 /* Search */,
 				4557CE792C35911B00603572 /* ActionTradingViewController.swift */,
 				4557CE7B2C35912900603572 /* BuyViewController.swift */,
@@ -273,6 +280,15 @@
 				4557CE8A2C3650B400603572 /* SympolCell.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		4557CE992C38422C00603572 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				4557CE952C38422300603572 /* PopupViewController.swift */,
+				4557CE962C38422300603572 /* PopupViewController.xib */,
+			);
+			path = Popup;
 			sourceTree = "<group>";
 		};
 		456EB8FD2BF0990F0018D38B /* Frameworks */ = {
@@ -485,6 +501,7 @@
 				45371E472C1584AC00685B4F /* ProcessAnimate.swift */,
 				45371E4B2C15937400685B4F /* NotificationManager.swift */,
 				4557CE7F2C35949A00603572 /* CustomSegmentedControl.swift */,
+				4557CE9A2C384A6100603572 /* PopupPresentationController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -756,6 +773,7 @@
 				4598962B2BFB4DDC006E2447 /* PredictTableViewCell.xib in Resources */,
 				4560F72C2C160F2300658F7A /* HistoryTableViewCell.xib in Resources */,
 				457BAE6A2BF8EFF1001AF323 /* SymbolTableViewCell.xib in Resources */,
+				4557CE982C38422300603572 /* PopupViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -906,6 +924,7 @@
 				45FF092E2C057C3100AF86BC /* String+Extension.swift in Sources */,
 				457BAE6C2BF8FCCC001AF323 /* ChartViewController.swift in Sources */,
 				4557CE862C35ADE300603572 /* StockSearch.swift in Sources */,
+				4557CE972C38422300603572 /* PopupViewController.swift in Sources */,
 				45FF09742C0C5E9A00AF86BC /* Wallet.swift in Sources */,
 				4557CE7A2C35911B00603572 /* ActionTradingViewController.swift in Sources */,
 				45371E482C1584AC00685B4F /* ProcessAnimate.swift in Sources */,
@@ -951,6 +970,7 @@
 				45DFD8C22BDA8D690032FB62 /* SceneDelegate.swift in Sources */,
 				457BAE582BF8B4B4001AF323 /* UserRegister.swift in Sources */,
 				45FF094E2C070DBD00AF86BC /* SLCDataSet.swift in Sources */,
+				4557CE9B2C384A6100603572 /* PopupPresentationController.swift in Sources */,
 				45FF0BA42C17007F009F39DA /* HistoryViewController.swift in Sources */,
 				45FF096F2C0B0FC100AF86BC /* Agent.swift in Sources */,
 				457BAE722BFA097F001AF323 /* BotViewController.swift in Sources */,

@@ -17,6 +17,7 @@ protocol StockDataRepositoryType {
     func getStockHold(usedID: Int, completion: @escaping(Result<[StockHold], Error>) -> Void)
     func getSearchStock(sympol: String, completion: @escaping (Result<[SympolSearch], any Error>) -> Void)
     func getSearchResult(id: Int, completion: @escaping(Result<StockSearch, Error>) -> Void)
+    func orderStock(parameters: [String: Any], completion: @escaping (Result<Void, Error>) -> Void)
 }
 
 struct StockDataRepository: StockDataRepositoryType {
@@ -69,5 +70,10 @@ struct StockDataRepository: StockDataRepositoryType {
     func getSearchResult(id: Int, completion: @escaping (Result<StockSearch, any Error>) -> Void) {
         let urlString = "https://app-trading-stock.azurewebsites.net/StockInfor/Daily/stockInforId?stockinforId=\(id)"
         apiService.fetchData(urlString: urlString, completion: completion)
+    }
+    
+    func orderStock(parameters: [String: Any], completion: @escaping (Result<Void, Error>) -> Void) {
+        let urlString = "https://app-trading-stock.azurewebsites.net/StockTransaction"
+        apiService.postDataOrther(urlString: urlString, parameters: parameters, completion: completion)
     }
 }

@@ -110,13 +110,15 @@ extension LoginViewController {
             if let tabBarController = segue.destination as? UITabBarController {
                 let viewControllers = tabBarController.viewControllers ?? []
                 for viewController in viewControllers {
-                    if let walletNavController = viewController as? UINavigationController {
-                        if let listViewController = walletNavController.topViewController as? ListViewController {
+                    if let navController = viewController as? UINavigationController {
+                        if let listViewController = navController.topViewController as? ListViewController {
                             listViewController.userID = self.userID
-                        } else if let walletViewController = walletNavController.topViewController as? WalletViewController {
+                        } else if let walletViewController = navController.topViewController as? WalletViewController {
                             walletViewController.userID = self.userID
-                        } else if let userViewController = walletNavController.topViewController as? UserViewController {
+                        } else if let userViewController = navController.topViewController as? UserViewController { // Fix here
                             userViewController.userID = self.userID
+                        } else if let actionTradingViewController = navController.topViewController as? ActionTradingViewController { // Fix here
+                            actionTradingViewController.userID = self.userID
                         }
                     }
                 }

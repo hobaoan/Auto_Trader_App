@@ -22,9 +22,18 @@ final class AgentViewController: UIViewController {
     @IBOutlet weak var FilterButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var viewCustom: UIView!
+    @IBOutlet weak var balanceLabel: UILabel!
+    @IBOutlet weak var investmentLabel: UILabel!
+    @IBOutlet weak var gainLabel: UILabel!
+    
     var currentDay: String?
     var futureDay: String?
     var amount: String?
+    var model: String?
+    var sympol: String?
+    var userID: Int?
+    
     private var agentDatas: [Agent] = []
     private var currentAgentDatas: [Agent] = []
     private let progressAnimate = ProgressAnimate()
@@ -36,6 +45,7 @@ final class AgentViewController: UIViewController {
         postRequest(strategy: "normal")
         setupButton()
         configTableView()
+        setupUI()
     }
     
     private func configTableView() {
@@ -43,19 +53,38 @@ final class AgentViewController: UIViewController {
         tableView.reloadData()
         tableView.register(cellType: AgentTableViewCell.self)
     }
+    
+    private func setupUI() {
+        let topBorder = CALayer()
+        topBorder.backgroundColor = UIColor.white.cgColor
+        topBorder.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 1)
+        viewCustom.layer.addSublayer(topBorder)
+        let bottomBorder = CALayer()
+        bottomBorder.backgroundColor = UIColor.white.cgColor
+        bottomBorder.frame = CGRect(x: 0, y: viewCustom.frame.height - 1, width: view.frame.width, height: 1)
+        viewCustom.layer.addSublayer(bottomBorder)
+    }
 }
 
 extension AgentViewController {
     private func postRequest(strategy: String) {
         progressAnimate.simulateProgress {}
-
+        
+        guard let userID = userID else { return }
+        guard let sympol = sympol else { return }
+        guard let currentDay = currentDay else { return }
+        guard let futureDay = futureDay else { return }
+        guard let amount = amount else { return }
+        guard let model = model else { return }
+        
         let parameters: [String: Any] = [
-            "UserId": 11,
-            "symbol": "ACB",
-            "from_date": "2023-05-21",
-            "to_date": "2024-05-21",
-            "init_money": 1000000,
-            "strategy": strategy
+            "UserId": userID,
+            "symbol": "\(sympol)",
+            "from_date": "\(currentDay)",
+            "to_date": "\(futureDay)",
+            "init_money": Double(amount) ?? 0.0,
+            "strategy": strategy,
+            "model": "\(model)"
         ]
 
         stockRepository.postTradeRange(parameters: parameters) { [weak self] (result: Result<[Agent?]?, Error>) in
@@ -70,6 +99,7 @@ extension AgentViewController {
                         self.configChart(agents: self.agentDatas)
                         self.tableView.reloadData()
                         self.setupLabelChart()
+                        self.setContent()
                     }
                 } else {
                     DispatchQueue.main.async {
@@ -116,7 +146,6 @@ extension AgentViewController {
     }
 }
 
-
 extension AgentViewController {
     private func configChart(agents: [Agent]) {
         ConfigureChart.configureChartAgent (
@@ -132,9 +161,13 @@ extension AgentViewController {
     private func setupButton() {
         strategyButton.menu = createMenuStrategy()
         strategyButton.showsMenuAsPrimaryAction = true
+        strategyButton.layer.cornerRadius = 5
+        strategyButton.clipsToBounds = true
         
         FilterButton.menu = createMenuFilter()
         FilterButton.showsMenuAsPrimaryAction = true
+        FilterButton.layer.cornerRadius = 5
+        FilterButton.clipsToBounds = true
     }
     
     private func createMenuStrategy() -> UIMenu {
@@ -198,16 +231,67 @@ extension AgentViewController: UITableViewDataSource {
         let agentData = currentAgentDatas[indexPath.row]
         if agentData.action == 1 {
             cell.setContent(date: agentData.date,
-                            price: agentData.close.formattedWithSeparator() ?? "N/A",
+                            price: "\(agentData.close.formattedWithSeparator() ?? "N/A") VND",
                             signal: "Buy",
-                            color: .greenStock)
+                            color: .greenStock, 
+                            status: "Content: \(agentData.status)")
         }
-        else {
+        else if agentData.action == 2 {
             cell.setContent(date: agentData.date,
-                            price: agentData.close.formattedWithSeparator() ?? "N/A",
+                            price: "\(agentData.close.formattedWithSeparator() ?? "N/A") VND",
                             signal: "Sell",
-                            color: .redStock)
+                            color: .redStock, 
+                            status:  "Content: \(agentData.status)")
+        } else {
+            cell.setContent(date: agentData.date,
+                            price: "\(agentData.close.formattedWithSeparator() ?? "N/A") VND",
+                            signal: "Hold",
+                            color: .systemOrange, 
+                            status:  "Content: \(agentData.status)")
         }
+            
         return cell
+    }
+}
+
+extension AgentViewController {
+    private func getBalance() -> Double {
+        return agentDatas.last?.balance ?? 0.0
+    }
+    
+    private func getInvestment() -> Double {
+        let totalGain = getGain()
+        let originBalance = agentDatas.first?.balance ?? 0.0
+        return totalGain / originBalance * 100
+    }
+    
+    private func getGain() -> Double {
+        var totalGain: Double = 0.0
+        for agentData in agentDatas {
+            if agentData.action == 2 {
+                if let gain = agentData.gain {
+                    totalGain += gain
+                }
+            }
+        }
+        return totalGain
+    }
+
+    private func setContent() {
+        balanceLabel.text = "\(getBalance())"
+        let investment = getInvestment()
+        investmentLabel.text = "\(investment) %"
+        if investment < 0 {
+            investmentLabel.textColor = .redStock
+        } else {
+            investmentLabel.textColor = .greenStock
+        }
+        let gain = getGain()
+        gainLabel.text = "\(gain)"
+        if gain < 0 {
+            gainLabel.textColor = .redStock
+        } else {
+            gainLabel.textColor = .greenStock
+        }
     }
 }

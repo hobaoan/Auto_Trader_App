@@ -17,12 +17,12 @@ struct Agent: Codable {
     let averageInvestmentReturn: Double?
     let investment: Double?
     let total: Double?
-    let totalGain: Double?
+    let gain: Double?
 
     enum CodingKeys: String, CodingKey {
         case action, balance, close, date, status, timestamp
         case averageInvestmentReturn = "average_investment_return"
         case investment, total
-        case totalGain = "total_gain"
+        case gain = "gain"
     }
 }

@@ -18,6 +18,7 @@ final class WalletViewController: UIViewController {
     @IBOutlet weak var profit: UILabel!
     @IBOutlet weak var capital: UILabel!
     @IBOutlet weak var balance: UILabel!
+    @IBOutlet weak var percent: UILabel!
     
     private let indicator = MaterialActivityIndicatorView()
     private let walletRepository: WalletRepositoryType = WalletRepository(apiService: .shared)
@@ -167,10 +168,16 @@ extension WalletViewController {
 
 extension WalletViewController {
     private func setContent(wallet: Wallet) {
-        total.text = "\(wallet.total) VND"
-        profit.text = "\(wallet.profit) VND"
-        capital.text = "\(wallet.capital) VND"
-        balance.text = "\(wallet.balance) VND"
+        total.text = "\(wallet.total.formattedWithSeparator() ?? "0") VND"
+        profit.text = "\(wallet.profit.formattedWithSeparator() ?? "0") VND"
+        capital.text = "\(wallet.capital.formattedWithSeparator() ?? "0") VND"
+        balance.text = "\(wallet.balance.formattedWithSeparator() ?? "0") VND"
+        percent.text = "\(wallet.percentProfit) %"
+        if wallet.percentProfit >= 0 {
+            percent.textColor = .greenStock
+        } else {
+            percent.textColor = .redStock
+        }
     }
     
     private func setupUI() {
