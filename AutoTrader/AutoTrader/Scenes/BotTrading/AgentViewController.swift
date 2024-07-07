@@ -233,20 +233,20 @@ extension AgentViewController: UITableViewDataSource {
             cell.setContent(date: agentData.date,
                             price: "\(agentData.close.formattedWithSeparator() ?? "N/A") VND",
                             signal: "Buy",
-                            color: .greenStock, 
+                            color: .greenStock,
                             status: "Content: \(agentData.status)")
         }
         else if agentData.action == 2 {
             cell.setContent(date: agentData.date,
                             price: "\(agentData.close.formattedWithSeparator() ?? "N/A") VND",
                             signal: "Sell",
-                            color: .redStock, 
+                            color: .redStock,
                             status:  "Content: \(agentData.status)")
         } else {
             cell.setContent(date: agentData.date,
                             price: "\(agentData.close.formattedWithSeparator() ?? "N/A") VND",
                             signal: "Hold",
-                            color: .systemOrange, 
+                            color: .systemOrange,
                             status:  "Content: \(agentData.status)")
         }
             
@@ -278,16 +278,16 @@ extension AgentViewController {
     }
 
     private func setContent() {
-        balanceLabel.text = "\(getBalance())"
-        let investment = getInvestment()
+        balanceLabel.text = "\(getBalance().formattedWithSeparator() ?? "N/A") VND"
+        let investment = getInvestment().roundedToTwoDecimalPlaces()
         investmentLabel.text = "\(investment) %"
         if investment < 0 {
             investmentLabel.textColor = .redStock
         } else {
             investmentLabel.textColor = .greenStock
         }
-        let gain = getGain()
-        gainLabel.text = "\(gain)"
+        let gain = getGain().roundedToTwoDecimalPlaces()
+        gainLabel.text = "\(gain.formattedWithSeparator() ?? "N/A")"
         if gain < 0 {
             gainLabel.textColor = .redStock
         } else {

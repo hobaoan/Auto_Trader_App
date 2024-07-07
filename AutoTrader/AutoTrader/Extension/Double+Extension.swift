@@ -16,4 +16,8 @@ extension Double {
         numberFormatter.groupingSeparator = "."
         return numberFormatter.string(from: NSNumber(value: integerPart))
     }
+    
+    func roundedToTwoDecimalPlaces() -> Double {
+        return (self * 100).rounded() / 100
+    }
 }
