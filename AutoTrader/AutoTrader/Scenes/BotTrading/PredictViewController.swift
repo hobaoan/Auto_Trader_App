@@ -266,13 +266,6 @@ extension PredictViewController {
             }
         }
         
-        let gru = UIAction(title: "GRU") { [weak self] _ in
-            DispatchQueue.main.async {
-                self?.algorithmButton.setTitle("GRU", for: .normal)
-                self?.fetchForecastData(nameML: "GRU")
-            }
-        }
-        
         let attention = UIAction(title: "Attention") { [weak self] _ in
             DispatchQueue.main.async {
                 self?.algorithmButton.setTitle("Attention", for: .normal)
@@ -280,7 +273,7 @@ extension PredictViewController {
             }
         }
         
-        let menu = UIMenu(children: [lstm, gru, attention])
+        let menu = UIMenu(children: [lstm, attention])
         
         return menu
     }

@@ -5,6 +5,13 @@
 //  Created by An Bảo on 27/04/2024.
 //
 
+//
+//  LoginViewController.swift
+//  AutoTrader
+//
+//  Created by An Bảo on 27/04/2024.
+//
+
 import UIKit
 
 final class LoginViewController: UIViewController {
@@ -115,9 +122,9 @@ extension LoginViewController {
                             listViewController.userID = self.userID
                         } else if let walletViewController = navController.topViewController as? WalletViewController {
                             walletViewController.userID = self.userID
-                        } else if let userViewController = navController.topViewController as? UserViewController { // Fix here
+                        } else if let userViewController = navController.topViewController as? UserViewController {
                             userViewController.userID = self.userID
-                        } else if let actionTradingViewController = navController.topViewController as? ActionTradingViewController { // Fix here
+                        } else if let actionTradingViewController = navController.topViewController as? ActionTradingViewController {
                             actionTradingViewController.userID = self.userID
                         }
                     }
@@ -130,11 +137,11 @@ extension LoginViewController {
 }
 
 // MARK: - setupUI
-
 extension LoginViewController {
     private func setupUI() {
         configureTextField(textField: emailText)
         configurePasswordField(textField: passText)
+        configureLabel(label: registerLabel, action: #selector(registerLabelTapped))
     }
     
     private func configureTextField(textField: UITextField) {
@@ -145,5 +152,16 @@ extension LoginViewController {
     private func configurePasswordField(textField: UITextField) {
         configureTextField(textField: textField)
         textField.isSecureTextEntry = true
+    }
+    
+    private func configureLabel(label: UILabel, action: Selector) {
+        label.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: action)
+        label.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func registerLabelTapped() {
+        // Handle the register label tap event
+        performSegue(withIdentifier: "toRegisterView", sender: nil)
     }
 }

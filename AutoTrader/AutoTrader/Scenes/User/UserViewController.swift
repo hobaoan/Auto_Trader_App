@@ -9,22 +9,22 @@ import UIKit
 
 final class UserViewController: UIViewController {
 
+    @IBOutlet weak var firstNameLabel: UILabel!
+    @IBOutlet weak var lastNameLabel: UILabel!
+    @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var phoneNumber: UILabel!
+    
     var userID: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(userID)
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension UserViewController {
+    @IBAction func logoutButtonTapped(_ sender: Any) {
+        showAlert(title: "Confirmation", message: "Are you sure you want to log out?", okHandler: { action in
+            self.performSegue(withIdentifier: "showLoginView", sender: nil)
+        })
     }
-    */
-
 }

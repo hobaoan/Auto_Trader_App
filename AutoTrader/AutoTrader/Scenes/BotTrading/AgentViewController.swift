@@ -25,7 +25,6 @@ final class AgentViewController: UIViewController {
     @IBOutlet weak var viewCustom: UIView!
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var investmentLabel: UILabel!
-    @IBOutlet weak var gainLabel: UILabel!
     
     var currentDay: String?
     var futureDay: String?
@@ -171,14 +170,14 @@ extension AgentViewController {
     }
     
     private func createMenuStrategy() -> UIMenu {
-        let normal = UIAction(title: "Normal") { [weak self] _ in
+        let normal = UIAction(title: "DCA") { [weak self] _ in
             self?.postRequest(strategy: "normal")
         }
         
-        let dsa = UIAction(title: "DCA") { [weak self] _ in
+        let dsa = UIAction(title: "AD") { [weak self] _ in
             self?.postRequest(strategy: "DCA")
         }
-        let lss = UIAction(title: "LSS") { [weak self] _ in
+        let lss = UIAction(title: "BSS") { [weak self] _ in
             self?.postRequest(strategy: "LSS")
         }
         
@@ -285,13 +284,6 @@ extension AgentViewController {
             investmentLabel.textColor = .redStock
         } else {
             investmentLabel.textColor = .greenStock
-        }
-        let gain = getGain().roundedToTwoDecimalPlaces()
-        gainLabel.text = "\(gain.formattedWithSeparator() ?? "N/A")"
-        if gain < 0 {
-            gainLabel.textColor = .redStock
-        } else {
-            gainLabel.textColor = .greenStock
         }
     }
 }

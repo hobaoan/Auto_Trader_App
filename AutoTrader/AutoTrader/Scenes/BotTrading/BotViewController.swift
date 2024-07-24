@@ -166,19 +166,13 @@ extension BotViewController {
             self.model = "LSTM"
         }
         
-        let gru = UIAction(title: "GRU") { [weak self] _ in
-            guard let self = self else { return }
-            self.modelButton.setTitle("GRU", for: .normal)
-            self.model = "GRU"
-        }
-        
         let attention = UIAction(title: "Attention") { [weak self] _ in
             guard let self = self else { return }
             self.modelButton.setTitle("Attention", for: .normal)
             self.model = "LSTM"
         }
         
-        let menu = UIMenu(children: [none, lstm, gru, attention])
+        let menu = UIMenu(children: [none, lstm, attention])
         
         return menu
     }

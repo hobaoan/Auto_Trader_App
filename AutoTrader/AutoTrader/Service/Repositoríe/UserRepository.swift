@@ -9,10 +9,10 @@ import Foundation
 
 protocol UserRepositoryType {
     func getUser(parameters: [String: Any], completion: @escaping(Result<Login, Error>) -> Void)
+    func registerUser(parameters: [String: Any], completion: @escaping(Result<User, Error>) -> Void)
 }
 
 struct UserRepository: UserRepositoryType {
-    
     private let apiService: APIService
     
     init(apiService: APIService) {
@@ -21,6 +21,11 @@ struct UserRepository: UserRepositoryType {
     
     func getUser(parameters: [String : Any], completion: @escaping (Result<Login, any Error>) -> Void) {
         let urlString = "https://app-trading-stock.azurewebsites.net/api/Auth/login"
+        apiService.postData(urlString: urlString, parameters: parameters, completion: completion)
+    }
+    
+    func registerUser(parameters: [String : Any], completion: @escaping (Result<User, any Error>) -> Void) {
+        let urlString = "https://app-trading-stock.azurewebsites.net/User"
         apiService.postData(urlString: urlString, parameters: parameters, completion: completion)
     }
 }
